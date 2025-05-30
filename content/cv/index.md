@@ -1,0 +1,170 @@
++++
+date = '2025-05-26T13:36:46-07:00'
+title = 'CV'
++++
+
+
+<div class="container" style="display: flex; align-items: flex-start;">
+    <div class="text" style="flex: 1; padding-right: 20px;">
+		<h2 style="margin-bottom: 10px;">
+			<span style="color:#3498db;">Reuben Demirdjian</span>
+		</h2>
+		<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+			<div style="text-align: left;"><b>Contact</b>: ReubenDemi at gmail dot com</div>
+		</div>
+		<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+			<div style="text-align: left;"><a href="https://scholar.google.com/citations?user=jUAkP-kAAAAJ&hl=en">Google Scholar</a></div>
+		</div>
+		<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+			<div style="text-align: left;"><a href="https://www.linkedin.com/in/reuben-demirdjian/">LinkedIn</a></div>
+		</div>
+    </div>
+    <img src="Headshot_circle.png" style="max-width: 25%; height: auto; margin-top: 30px; margin-right: 30px;">
+</div>
+
+
+
+
+<br>
+
+----------
+
+
+<h3 style="margin-bottom: 10px;">
+    <span style="color:#3498db;">Education</span>
+</h3>
+
+<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+    <div style="text-align: left;"><b>PhD in Oceanography</b>, University of California, San Diego</div>
+    <div style="text-align: right;">Sept 2014 – May 2020</div>
+</div>
+<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+    <div style="text-align: left;"><b>Bsc in Mathematics</b>, University of California, Santa Barbara</div>
+    <div style="text-align: right;">Sept 2010 – June 2012</div>
+</div>
+<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+    <div style="text-align: left;"><b>Bsc in Physics</b>, University of California, Santa Barbara</div>
+    <div style="text-align: right;">Sept 2010 – June 2012</div>
+</div>
+<br>
+
+----------
+
+<h3 style="margin-bottom: 10px;">
+    <span style="color:#3498db;">Work Experience</span>
+</h3>
+
+<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+    <div style="text-align: left;"><b>Research Meteorologist</b> – U.S. Naval Research Laboratory</div>
+    <div style="text-align: right;">July 2023 – Present</div>
+</div>
+<ul style="margin-top: 0; padding: 0; margin-left: 40px;">
+    <li style="margin-bottom: 1px;">Develop and optimize quantum algorithms to solve differential equations</li>
+    <li style="margin-bottom: 1px;">Supervise a postdoc developing algorithms with end-to-end resource analysis</li>
+    <li style="margin-bottom: 1px;">Weather model development for high-performance computers</li>
+	<li style="margin-bottom: 1px;">Dynamical and statistical analysis of weather model data</li>
+</ul>
+
+<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+    <div style="text-align: left;"><b>Postdoctoral Fellow</b> – National Research Council</div>
+    <div style="text-align: right;">Sept 2020 – July 2023</div>
+</div>
+<ul style="margin-top: 0; padding: 0; margin-left: 40px;">
+    <li style="margin-bottom: 1px;">Tested quantum algorithm for differential equations on real IBM hardware</li>	
+    <li style="margin-bottom: 1px;">Numerical weather prediction using HPC</li>		
+    <li style="margin-bottom: 1px;">Received 2 publication awards from the U.S. Navy</li>	
+</ul>
+
+<div style="display: flex; justify-content: space-between; margin-left: 20px;">
+    <div style="text-align: left;"><b>Graduate Student Researcher</b> – UC San Diego</div>
+    <div style="text-align: right;">April 2014 – May 2020</div>
+</div>
+<ul style="margin-top: 0; padding: 0; margin-left: 40px;">	
+    <li style="margin-bottom: 1px;">Dissertation – F. Martin Ralph: <em>Mesoscale Dynamics of Atmospheric Rivers</em></li>		
+    <li style="margin-bottom: 1px;">Mentored two undergraduate students on meteorological research projects</li>	
+</ul>
+<br>
+
+----------
+
+<h3 style="margin-bottom: 10px;">
+    <span style="color:#3498db;">Skills </span>
+</h3>
+<div style="display: flex; align-items: center;">
+	<div style="text-align: left;margin-left: 20px;">Programming</div>
+	<div style="text-align: left; padding-left: 30px;">Python | Fortran | Bash | NCL | LaTeX</div>
+</div>
+<div style="display: flex; align-items: center;">
+	<div style="text-align: left;margin-left: 20px;">Libraries</div>
+	<div style="text-align: left; padding-left: 73px;">Qiskit | SciPy | NumPy | pandas | Matplotlib | multiprocessing | Xarray </div>
+</div>
+<div style="display: flex; align-items: center;">
+	<div style="text-align: left;margin-left: 20px;">Computational</div>
+	<div style="text-align: left; padding-left: 21px;">Linux | High-Performance Computing | Parallel Processing | MPI </div>
+</div>
+<div style="display: flex; align-items: center;">
+	<div style="text-align: left;margin-left: 20px;">Math Tools</div>
+	<div style="text-align: left; padding-left: 52px;">Variational Algorithms | Matrix Decompositions | Circuit Design</div>	
+</div>
+<div style="display: flex; align-items: center;">
+	<div style="text-align: left; padding-left: 161px;">Optimization | Solutions of Differential Equations | Lattice Boltzmann</div>	
+</div>
+<div style="display: flex; align-items: center;">
+	<div style="text-align: left; padding-left: 161px;">Ansatz Design | Carleman Linearization | Quantum Data Loading</div>	
+</div>
+<br>
+
+----------
+
+<h3 style="margin-bottom: 10px;">
+    <span style="color:#3498db;">Publications </span>
+</h3>
+<h4 style="margin-bottom: 10px; margin-top: 0px; margin-left: 20px; color:#3498db;">
+    <span><u>Quantum Computing</u></span>
+</h4>
+<ul style="margin-top: 0; padding: 0; margin-left: 40px;">
+    <li style="margin-bottom: 10px;">Demirdjian et al. (2025). <b>An Efficient Decomposition of the Carleman Linearized Burgers’ Equation</b>. Quantum (<em>in rev</em>). <a href="https://doi.org/10.48550/arXiv.2505.00285">https://doi.org/10.48550/arXiv.2505.00285</a></li>
+    <li style="margin-bottom: 10px;">Demirdjian et al. (2022). <b>Variational Quantum Solutions to the Advection–Diffusion Equation for Applications in Fluid Dynamics</b>. Quantum Inf Process. <a href="https://doi.org/10.1007/s11128-022-03667-7">https://doi.org/10.1007/s11128-022-03667-7</a></li>	
+</ul>
+	
+<h4 style="margin-bottom: 10px; margin-top: 0px; margin-left: 20px; color:#3498db;">
+    <span><u>Weather and Fluid Dynamics</u></span>
+</h4>	
+<ul style="margin-top: 0; padding: 0; margin-left: 40px;">	
+    <li style="margin-bottom: 10px;">Demirdjian et al. (2023). <b>Preconditioning and Intensification of Upstream Extratropical Cyclones through Surface Fluxes</b>. JAS. <a href="https://doi.org/10.1175/JAS-D-22-0251.1">https://doi.org/10.1175/JAS-D-22-0251.1</a></li>
+    <li style="margin-bottom: 10px;">Demirdjian et al. (2022). <b>On the Influence of Surface Latent Heat Fluxes on Idealized Extratropical Cyclones</b>. JAS. <a href="https://doi.org/10.1175/JAS-D-22-0035.1">https://doi.org/10.1175/JAS-D-22-0035.1</a></li>		
+    <li style="margin-bottom: 10px;">Demirdjian et al. (2021). <b>The Circulation Response of a Two-Dimensional Frontogenetic Model to Optimized Moisture Perturbations</b>. JAS. <a href="https://doi.org/10.1175/JAS-D-20-0102.1">https://doi.org/10.1175/JAS-D-20-0102.1</a></li>
+    <li style="margin-bottom: 10px;">Demirdjian et al. (2020). <b>Dropsonde Observations of the Ageostrophy within the Pre-Cold-Frontal Low-Level Jet Associated with Atmospheric Rivers</b>. MWR. <a href="https://doi.org/10.1175/MWR-D-19-0248.1">https://doi.org/10.1175/MWR-D-19-0248.1</a></li>
+    <li style="margin-bottom: 10px;">Demirdjian et al. (2020). <b>A Case Study of the Physical Processes Associated with the Atmospheric River Initial-Condition Sensitivity from an Adjoint Model</b>. JAS. <a href="https://doi.org/10.1175/JAS-D-19-0155.1">https://doi.org/10.1175/JAS-D-19-0155.1</a></li>	
+    <li style="margin-bottom: 10px;">Norris et al. (2020). <b>The Observed Water Vapor Budget in an Atmospheric River over the Northeast Pacific</b>. J.Hydro. <a href="https://doi.org/10.1175/JHM-D-20-0048.1">https://doi.org/10.1175/JHM-D-20-0048.1</a></li>	
+    <li style="margin-bottom: 10px;">Cannon et al. (2020). <b>TGPM Satellite Radar Observations of Precipitation Mechanisms in Atmospheric Rivers</b>. MWR. <a href="https://doi.org/10.1175/MWR-D-19-0278.1">https://doi.org/10.1175/MWR-D-19-0278.1</a></li>	
+    <li style="margin-bottom: 10px;">Reynolds et al. (2019). <b>Adjoint Sensitivity of North Pacific Atmospheric River Forecasts</b>. MWR. <a href="https://doi.org/10.1175/MWR-D-18-0347.1">https://doi.org/10.1175/MWR-D-18-0347.1</a></li>  
+    <li style="margin-bottom: 10px;">Martin et al. (2018). <b>Evaluation of Atmospheric River Predictions by the WRF Model Using Aircraft and Regional Mesonet Observations of Orographic Precipitation and Its Forcing</b>. J.Hydro. <a href="https://doi.org/10.1175/JHM-D-17-0098.1">https://doi.org/10.1175/JHM-D-17-0098.1</a></li>		
+</ul>
+<br>
+
+----------
+
+<h3 style="margin-bottom: 10px;">
+    <span style="color:#3498db;">Presentations </span>
+</h3>
+<ul style="margin-top: 0; padding: 0; margin-left: 40px;">
+	<li style="margin-bottom: 10px;">(2024) Solutions of a Simple Nonlinear PDE using a Noisy Quantum Computer for Applications in Fluid Dynamics, Naval Surface Warfare Center, Carderock, Maryland. <em><b>Invited</b></em>
+	<li style="margin-bottom: 10px;">(2024) Solving Simple Nonlinear PDEs using Quantum Computers for Applications in Fluid Dynamics, AMS Annual. Baltimore, Maryland.
+	<li style="margin-bottom: 10px;">(2024) Polar Low Genesis and Intensification Sensitivities to Oceanic Surface Fluxes Using an Idealized Model, Naval Quantum Working Group. <em><b>Invited</b></em>	
+	<li style="margin-bottom: 10px;">(2023) Modeling and Forecasting Panel. Quantum For Climate & Sustainability, General Electric, Niskayuna, NY. <em><b>Invited</b></em>	
+	<li style="margin-bottom: 10px;">(2022) Quantum Computing Applications relevant for Numerical Weather Prediction. Zapata Seminar. <em><b>Invited</b></em>	
+	<li style="margin-bottom: 10px;">(2022) Surface Latent Heat Flux Influence on Idealized Extratropical Cyclones. International Atmospheric Rivers Conference 2022, Santiago, Chile.		
+	<li style="margin-bottom: 10px;">(2022) On the Influence of Surface Latent Heat Fluxes on Idealized Extratropical Cyclones. 3rd Pan-GASS Meeting Understanding and Modeling Atmospheric Processes, Monterey, CA.
+	<li style="margin-bottom: 10px;">(2022) Quantum Computing and Numerical Weather Prediction. AMS Annual 2022, Houston, TX.	
+	<li style="margin-bottom: 10px;">(2022) Latent Heat Flux Influence on Idealized Extratropical Cyclones, Atmospheric Rivers and the Conveyor Belt Model. AMS Annual 2022, Houston, TX.
+	<li style="margin-bottom: 10px;">(2020) A Case Study of the Physical Processes Associated with the Atmospheric River Initial Condition Sensitivity from an Adjoint Model. AMS Annual, Boston, MA.
+	<li style="margin-bottom: 10px;">(2019) A Case Study of the Physical Processes Associated with the Atmospheric River Initial Condition Sensitivity from an Adjoint Model. 18th Conference on Mesoscale Processes, Savannah, GA.
+	<li style="margin-bottom: 10px;">(2018) An Airborne and Surface-Based Study of the Complete Water Vapor Budget and Associated Dynamical Processes in an Atmospheric River over the Northeast Pacific. Naval Research Laboratory Seminar, Monterey, CA. <em><b>Invited</b></em>
+	<li style="margin-bottom: 10px;">(2018) On the use of a height tendency analysis for physical process studies. International Atmospheric Rivers Conference 2018. La Jolla, CA, Scripps Institution of Oceanography.
+	<li style="margin-bottom: 10px;">(2018) Diagnostics of the Ageostrophic Component of a Pre-Frontal Low-Level Jet Using the WRF Model. 18th Conference on Mesoscale Processes: San Diego, CA.
+	<li style="margin-bottom: 10px;">(2017) Dropsonde Observations of the Ageostrophy of the Pre-Cold-Frontal Low-Level Jet in Atmospheric Rivers, and its Role in Modulating Water Vapor Transport. 18th Cyclone Workshop: Sainte Adele, Quebec, Canada, U. Albany.
+	<li style="margin-bottom: 10px;">(2017) A Theory for the Forcing Mechanism of the Ageostrophic Component of the Pre-Frontal Low-Level Jet. AMS Annual 2017, Seattle, WA.
+	<li style="margin-bottom: 10px;">(2015) Skill Test of the West-WRF and GFS Models Verified Using CalWater Dropsonde Observations. AGU Fall Meeting 2015, San Francisco, CA, Amer. Geophys. Union.
+</li>
+</ul>
