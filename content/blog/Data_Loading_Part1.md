@@ -81,7 +81,7 @@ $$U_2 = \begin{pmatrix} \sigma_x & 0 \\\ 0 & \sigma_x \end{pmatrix} =
 <br>
 >The full circuit is given [here in Quirk](https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}) and reproduced below.  
 <br>
->![targets](/images/Example1.png)  
+><img src="Example1.png" style="max-width: 100%; height: auto;">
 <br>
 >Here we used the [EPR pairs](https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality) trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
 
