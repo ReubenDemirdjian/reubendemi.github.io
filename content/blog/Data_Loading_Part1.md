@@ -38,8 +38,6 @@ onto the quantum computer. Suppose you have developed an algorithm that
 solves a particular problem exponentially faster than the best known classical methods, 
 if loading the data loading is slow, then all advantage is lost before the quantum algorithm does a single operation.
 
-Gif of data loading
-
 This is exactly the case for solving linear systems of equations. There are currently an array of quantum algorithms ([HHL](#1), [CKS](#2), [VQLS](#3) etc.) out there that can solve<sup>[4](#4)</sup> linear systems exponentially faster than any known classical algorithm. However, there is comparatively less work on the topic of efficiently loading the matrix $A$ (or $\vec{b}$) necessary to solve the system. My guess is that this is largely because data loading is an applications driven problem and, to date, quantum computers just aren't very useful for solving anything beyond sample problems.
 
 Therefore, in a recent study of mine<sup>[5](#5)</sup>, my collaborators and I decided to tackle the problem of data loading for the Burgers' equation, a paradigmatic nonlinear partial differential equation (PDE) relevant in fluid dynamics. Ultimately, we are interested in more complicated PDEs, but this serves as a starting place. 
@@ -81,7 +79,7 @@ $$U_2 = \begin{pmatrix} \sigma_x & 0 \\\ 0 & \sigma_x \end{pmatrix} =
 <br>
 >The full circuit is given [here in Quirk](https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}) and reproduced below.  
 <br>
-><img src="/static/images/Example1.png" style="max-width: 100%; height: auto;">
+>![Ex1](/images/Example1.png)
 <br>
 >Here we used the [EPR pairs](https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality) trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
 
@@ -97,7 +95,7 @@ $$ U_1 = \begin{pmatrix} I-\rho_{003} & \rho_{003} \\\ \rho_{003} & I-\rho_{003}
 \
 >where I have used the notation $\rho_{ijk}=\rho_i\otimes\rho_j\otimes\rho_k$. As before, the $U_1$ circuit is constructed by a single control NOT gate, but this time there are multiple controls. Similarly, since $U_2$ has two $\sigma_x$ components, it is comprised of just two $\sigma_x$ gates. The full circuit is given [here in Quirk](https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,1,%22X%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22],[1,1,1,1,%22%E2%80%A2%22,%22%E2%80%A2%22,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22]]}) and reproduced below.  
 <br>
-<img src="/static/images/Example2.png" style="max-width: 100%; height: auto;">
+>![Ex2](/images/Example2.png)
 <br>
 >By applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_{012}$ as desired. $\Box$
 
