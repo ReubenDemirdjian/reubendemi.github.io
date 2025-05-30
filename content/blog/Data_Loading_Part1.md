@@ -81,7 +81,7 @@ $$U_2 = \begin{pmatrix} \sigma_x & 0 \\\ 0 & \sigma_x \end{pmatrix} =
 <br>
 >The full circuit is given [here in Quirk](https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}) and reproduced below.  
 <br>
-><img src="Example1.png" style="max-width: 100%; height: auto;">
+><img src="/static/images/Example1.png" style="max-width: 100%; height: auto;">
 <br>
 >Here we used the [EPR pairs](https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality) trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
 
@@ -97,7 +97,7 @@ $$ U_1 = \begin{pmatrix} I-\rho_{003} & \rho_{003} \\\ \rho_{003} & I-\rho_{003}
 \
 >where I have used the notation $\rho_{ijk}=\rho_i\otimes\rho_j\otimes\rho_k$. As before, the $U_1$ circuit is constructed by a single control NOT gate, but this time there are multiple controls. Similarly, since $U_2$ has two $\sigma_x$ components, it is comprised of just two $\sigma_x$ gates. The full circuit is given [here in Quirk](https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,1,%22X%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22],[1,1,1,1,%22%E2%80%A2%22,%22%E2%80%A2%22,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22]]}) and reproduced below.  
 <br>
->![targets](/images/Example2.png)  
+><img src="/static/images/Example2.png" style="max-width: 100%; height: auto;">
 <br>
 >By applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_{012}$ as desired. $\Box$
 
