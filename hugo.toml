@@ -1,5 +1,5 @@
 # Basic config
-baseURL = "https://ReubenDemirdjian.github.io/"
+baseURL = "https://ReubenDemirdjian.github.io/aaa"
 theme = "hugo-simple"
 defaultContentLanguage = "en"
 languageCode = "en"                # zh-Hans
