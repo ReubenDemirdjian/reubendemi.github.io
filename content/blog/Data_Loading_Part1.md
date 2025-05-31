@@ -89,10 +89,30 @@ where $\bar{A}$ is called the unitary completion of $A$. To find the circuit, we
 	Here we used the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality">EPR pairs</a> trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
 </div>
 
-testing
+test 1
 <br>
 <p class="aligncenter">
 	<img src="images/Example1.png" alt="centered image" /></p>
+<style>
+.aligncenter {
+	text-align: center;
+}
+</style>
+
+test 2
+<br>
+<p class="aligncenter">
+	<img src="/data_loading_part1/Example1.png" alt="centered image" /></p>
+<style>
+.aligncenter {
+	text-align: center;
+}
+</style>
+
+test 3
+<br>
+<p class="aligncenter">
+	<img src="Example1.png" alt="centered image" /></p>
 <style>
 .aligncenter {
 	text-align: center;
