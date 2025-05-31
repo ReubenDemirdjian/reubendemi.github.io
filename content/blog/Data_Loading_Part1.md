@@ -95,23 +95,24 @@ $$ U_1 = \begin{pmatrix} I-\rho_{003} & \rho_{003} \\\ \rho_{003} & I-\rho_{003}
 \
 >where I have used the notation $\rho_{ijk}=\rho_i\otimes\rho_j\otimes\rho_k$. As before, the $U_1$ circuit is constructed by a single control NOT gate, but this time there are multiple controls. Similarly, since $U_2$ has two $\sigma_x$ components, it is comprised of just two $\sigma_x$ gates. The full circuit is given [here in Quirk](https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,1,%22X%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22],[1,1,1,1,%22%E2%80%A2%22,%22%E2%80%A2%22,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22]]}) and reproduced below.  
 <br>
->![Ex2](images/Example2.png)
+>![Ex2](/images/Example2.png)
 <br>
 >By applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_{012}$ as desired. $\Box$
 
-![Ex2](images/Example2.png)
+test text
+<br>
 ![Ex2](/images/Example2.png)
-![Ex2](/website/static/images/Example2.png)
-![Ex2](website/static/images/Example2.png)
+<br>
 <p class="aligncenter">
-    <img src="/static/images/wave_breaking.gif" alt="centered image" />
+    <img src="/images/wave_breaking.gif" alt="centered image" />
 	<figcaption> Credit:  <a href="https://in.pinterest.com/iammii/">Christel Boon</a></figcaption>
 </p>
+<br>
 <p class="aligncenter">
-    <img src="/static/images/Example2.png" alt="centered image" />
+    <img src="/images/Example2.png" alt="centered image" />
 	<figcaption> Credit:  <a href="https://in.pinterest.com/iammii/">Christel Boon</a></figcaption>
 </p>
-
+<br>
 
 
 You may be wondering, how did you determine which controls to apply (open vs. closed) for the $U_1$ gate in Example 2? This comes directly from the proof of Theorem 3 in GS24 where they provide an algorithm for exactly this purpose, summarized as follows: *For each component of the matrix $A$, take the product with its transpose. If $\rho_j\rho_j^T = \rho_0$ then apply an open control, if $\rho_j\rho_j^T = \rho_3$ apply a closed control, and if $\rho_j\rho_j^T = \rho_4$ apply no control.* 
