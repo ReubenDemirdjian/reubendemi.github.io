@@ -3,7 +3,7 @@ author = "Reuben Demirdjian"
 title = "Matrix Decomposition Trees"
 date = "2024-11-23"
 description = "An Introduction to Matrix Decomposition Trees"
-draft = true
+draft = false
 +++
 
 <script type="text/x-mathjax-config">
