@@ -99,6 +99,10 @@ $$ U_1 = \begin{pmatrix} I-\rho_{003} & \rho_{003} \\\ \rho_{003} & I-\rho_{003}
 <br>
 >By applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_{012}$ as desired. $\Box$
 
+<div style="border-radius: 10px; background: beige; padding: 10px;">
+  Rounded
+</div>
+
 test text 2
 <br>
 ![Ex2](images/Example2.png)
