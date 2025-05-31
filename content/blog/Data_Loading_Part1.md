@@ -33,7 +33,7 @@ MathJax.Hub.Config({
 
 ## Introduction
 
-One of the bottlenecks for certain quantum algorithms is the loading classical data 
+One of the bottlenecks for certain quantum algorithms is loading classical data 
 onto the quantum computer. Suppose you have developed an algorithm that 
 solves a particular problem exponentially faster than the best known classical methods, 
 if loading the data loading is slow, then all advantage is lost before the quantum algorithm does a single operation.
