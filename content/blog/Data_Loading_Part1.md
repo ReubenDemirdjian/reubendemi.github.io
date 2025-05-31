@@ -80,7 +80,7 @@ where $\bar{A}$ is called the unitary completion of $A$. To find the circuit, we
 	The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
 	<br>
 	<p class="aligncenter">
-		<img src="/images/Example1.png" alt="centered image" /></p>
+		<img src="Example1.png" alt="centered image" /></p>
 	<style>
 	.aligncenter {
 		text-align: center;
@@ -88,36 +88,6 @@ where $\bar{A}$ is called the unitary completion of $A$. To find the circuit, we
 	</style>	
 	Here we used the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality">EPR pairs</a> trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
 </div>
-
-test 1
-<br>
-<p class="aligncenter">
-	<img src="images/Example1.png" alt="centered image" /></p>
-<style>
-.aligncenter {
-	text-align: center;
-}
-</style>
-
-test 2
-<br>
-<p class="aligncenter">
-	<img src="/data_loading_part1/Example1.png" alt="centered image" /></p>
-<style>
-.aligncenter {
-	text-align: center;
-}
-</style>
-
-test 3
-<br>
-<p class="aligncenter">
-	<img src="Example1.png" alt="centered image" /></p>
-<style>
-.aligncenter {
-	text-align: center;
-}
-</style>
 
 I suggest trying the same for the other $\rho_j$, with $j\in\\{0,2,3,4\\}$ matrices and verifying that the resulting block encoded matrix $U$ is unitary for each of them.
 
@@ -132,7 +102,7 @@ Informally, their Theorem 2 says: *if you have some matrix $A$ that is a tensor 
 	where I have used the notation $\rho_{ijk}=\rho_i\otimes\rho_j\otimes\rho_k$. As before, the $U_1$ circuit is constructed by a single control NOT gate, but this time there are multiple controls. Similarly, since $U_2$ has two $\sigma_x$ components, it is comprised of just two $\sigma_x$ gates. The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,1,%22X%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22],[1,1,1,1,%22%E2%80%A2%22,%22%E2%80%A2%22,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22]]}">here in Quirk</a> and reproduced below.  
 	<br>
 	<p class="aligncenter">
-		<img src="/images/Example2.png" alt="centered image" /></p>
+		<img src="Example2.png" alt="centered image" /></p>
 	<style>
 	.aligncenter {
 		text-align: center;
