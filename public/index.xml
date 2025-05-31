@@ -305,63 +305,6 @@
 </ul>]]></content:encoded>
     </item>
     <item>
-      <title>Matrix Decomposition Trees</title>
-      <link>https://ReubenDemirdjian.github.io/website/matrix_decomposition_trees/</link>
-      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate><author>ReubenDemi@gmail.com (Reuben Demirdjian)</author>
-      <guid>https://ReubenDemirdjian.github.io/website/matrix_decomposition_trees/</guid>
-      <description>&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [[&#39;$&#39;,&#39;$&#39;]],
-    displayMath: [[&#39;$$&#39;,&#39;$$&#39;]],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;],
-    TeX: { equationNumbers: { autoNumber: &#34;AMS&#34; },
-         extensions: [&#34;AMSmath.js&#34;, &#34;AMSsymbols.js&#34;] }
-  }
-});
-&lt;/script&gt;
-&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
-  MathJax.Hub.Queue(function() {
-    // Fix &lt;code&gt; tags after MathJax finishes running. This is a
-    // hack to overcome a shortcoming of Markdown. Discussion at
-    // https://github.com/mojombo/jekyll/issues/199
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i &lt; all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += &#39; has-jax&#39;;
-    }
-});
-&lt;/script&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;</description>
-      <content:encoded><![CDATA[<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    // Fix <code> tags after MathJax finishes running. This is a
-    // hack to overcome a shortcoming of Markdown. Discussion at
-    // https://github.com/mojombo/jekyll/issues/199
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-<h2 id="introduction">Introduction</h2>
-]]></content:encoded>
-    </item>
-    <item>
       <title>Data Loading on a Quantum Computer: Part 1</title>
       <link>https://ReubenDemirdjian.github.io/website/data_loading_part1/</link>
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate><author>ReubenDemi@gmail.com (Reuben Demirdjian)</author>
@@ -391,7 +334,7 @@ MathJax.Hub.Config({
 });
 &lt;/script&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;One of the bottlenecks for certain quantum algorithms is the loading classical data
+&lt;p&gt;One of the bottlenecks for certain quantum algorithms is loading classical data
 onto the quantum computer. Suppose you have developed an algorithm that
 solves a particular problem exponentially faster than the best known classical methods,
 if loading the data loading is slow, then all advantage is lost before the quantum algorithm does a single operation.&lt;/p&gt;</description>
@@ -420,10 +363,18 @@ MathJax.Hub.Config({
 });
 </script>
 <h2 id="introduction">Introduction</h2>
-<p>One of the bottlenecks for certain quantum algorithms is the loading classical data
+<p>One of the bottlenecks for certain quantum algorithms is loading classical data
 onto the quantum computer. Suppose you have developed an algorithm that
 solves a particular problem exponentially faster than the best known classical methods,
 if loading the data loading is slow, then all advantage is lost before the quantum algorithm does a single operation.</p>
+<p class="aligncenter">
+	<img src="data_loading_gif_125.gif" alt="centered image" /></p>
+<style>
+.aligncenter {
+	text-align: center;
+	border-radius: 10px;
+}
+</style>	
 <p>This is exactly the case for solving linear systems of equations. There are currently an array of quantum algorithms (<a href="#1">HHL</a>, <a href="#2">CKS</a>, <a href="#3">VQLS</a> etc.) out there that can solve<sup><a href="#4">4</a></sup> linear systems exponentially faster than any known classical algorithm. However, there is comparatively less work on the topic of efficiently loading the matrix $A$ (or $\vec{b}$) necessary to solve the system. My guess is that this is largely because data loading is an applications driven problem and, to date, quantum computers just aren&rsquo;t very useful for solving anything beyond sample problems.</p>
 <p>Therefore, in a recent study of mine<sup><a href="#5">5</a></sup>, my collaborators and I decided to tackle the problem of data loading for the Burgers&rsquo; equation, a paradigmatic nonlinear partial differential equation (PDE) relevant in fluid dynamics. Ultimately, we are interested in more complicated PDEs, but this serves as a starting place.</p>
 <p>You might be wondering, how do you use a quantum linear solver to solve the nonlinear Burgers&rsquo; equation? Without going into the weeds<sup><a href="#6">6</a></sup>, the nonlinear PDE is transformed into a (ludicrously large) linear system of the form $A\vec{x}=\vec{b}$. This enables us to circumvent the difficulty of solving nonliner equations with quantum computers.</p>

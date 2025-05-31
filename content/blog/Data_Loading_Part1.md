@@ -38,6 +38,15 @@ onto the quantum computer. Suppose you have developed an algorithm that
 solves a particular problem exponentially faster than the best known classical methods, 
 if loading the data loading is slow, then all advantage is lost before the quantum algorithm does a single operation.
 
+<p class="aligncenter">
+	<img src="data_loading_gif_125.gif" alt="centered image" /></p>
+<style>
+.aligncenter {
+	text-align: center;
+	border-radius: 10px;
+}
+</style>	
+
 This is exactly the case for solving linear systems of equations. There are currently an array of quantum algorithms ([HHL](#1), [CKS](#2), [VQLS](#3) etc.) out there that can solve<sup>[4](#4)</sup> linear systems exponentially faster than any known classical algorithm. However, there is comparatively less work on the topic of efficiently loading the matrix $A$ (or $\vec{b}$) necessary to solve the system. My guess is that this is largely because data loading is an applications driven problem and, to date, quantum computers just aren't very useful for solving anything beyond sample problems.
 
 Therefore, in a recent study of mine<sup>[5](#5)</sup>, my collaborators and I decided to tackle the problem of data loading for the Burgers' equation, a paradigmatic nonlinear partial differential equation (PDE) relevant in fluid dynamics. Ultimately, we are interested in more complicated PDEs, but this serves as a starting place. 
