@@ -11,7 +11,7 @@ I made this webpage to share some of my thoughts in a more informal setting comp
 
 
 <p class="aligncenter">
-    <img src="/static/images/wave_breaking.gif" alt="centered image" />
+    <img src="/images/wave_breaking.gif" alt="centered image" />
 	<figcaption> Credit:  <a href="https://in.pinterest.com/iammii/">Christel Boon</a></figcaption>
 </p>
 <style>

@@ -439,26 +439,31 @@ if loading the data loading is slow, then all advantage is lost before the quant
 <p>So how do we construct a circuit for this block encoding? They found that that if $U$ is actually split into the product of two specific unitary matrices, then it becomes straightforward to find the appropriate circuit. The two unitaries are</p>
 <p>$$U = U_1 U_2 := \begin{pmatrix} I-AA^T &amp; AA^T \\ AA^T &amp; I-AA^T \end{pmatrix}\begin{pmatrix} \bar{A} &amp; 0 \\ 0 &amp; \bar{A} \end{pmatrix}.$$</p>
 <p>where $\bar{A}$ is called the unitary completion of $A$. To find the circuit, we must therefore determine how to find $\bar{A}$. Thankfully, this is exactly what Theorem 1 of GS24 tells us: <em>The unitary completion of $\rho_1$ and $\rho_2$ is $\sigma_x$, where $\sigma_x$ is the Pauli-X matrix. Similarly, the unitary completion of $\rho_0$, $\rho_3$, and $\rho_4$ is $\rho_4$.</em> Below is a simple example to illustrate this.</p>
-<h4 id="example-1">Example 1:</h4>
-<blockquote>
-<p>Suppose we have $A=\rho_1$, then by Theorem 1 of GS24, $\bar{A} = \sigma_x$. Therefore,
-$$U_1 = \begin{pmatrix} \rho_3 &amp; \rho_0 \\ \rho_0 &amp; \rho_3 \end{pmatrix} = <br>
-\begin{pmatrix} 0&amp;0&amp;1&amp;0 \\ 0&amp;1&amp;0&amp;0 \\ 1&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;1 \end{pmatrix}$$
-$$U_2 = \begin{pmatrix} \sigma_x &amp; 0 \\ 0 &amp; \sigma_x \end{pmatrix} =
-\begin{pmatrix} 0&amp;1&amp;0&amp;0 \\ 1&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;1 \\ 0&amp;0&amp;1&amp;0  \end{pmatrix}$$
-<br>
-The circuit for $U_1$ is an open CNOT gate, which is just a regular CNOT with $\sigma_x$ applied before and after the control. Next, since $U_2=I\otimes \sigma_x$, its circuit is a single $\sigma_x$ gate.<br>
-<br>
-The full circuit is given <a href="https://algassert.com/quirk#circuit=%7B%22cols%22:%5B%5B%22H%22,%22H%22%5D,%5B%22%E2%80%A2%22,1,%22X%22%5D,%5B1,%22%E2%80%A2%22,1,%22X%22%5D,%5B1,1,%22X%22%5D,%5B1,1,%22X%22%5D,%5B1,1,%22%E2%80%A2%22,%22X%22%5D,%5B1,1,%22X%22%5D%5D%7D">here in Quirk</a> and reproduced below.<br>
-<br>
-<img src="/images/Example1.png" alt="Ex1">
-<br>
-Here we used the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality">EPR pairs</a> trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$</p></blockquote>
+<div style="border-radius: 10px; background: beige; padding: 10px; color: black">
+	<h4 style="margin:0.3em 0"><u>Example 1</u></h4> 
+	Suppose we have $A=\rho_1$, then by Theorem 1 of GS24, $\bar{A} = \sigma_x$. Therefore, 
+	$$U_1 = \begin{pmatrix} \rho_3 & \rho_0 \\\ \rho_0 & \rho_3 \end{pmatrix} = \
+	\begin{pmatrix} 0&0&1&0 \\\ 0&1&0&0 \\\ 1&0&0&0 \\\ 0&0&0&1 \end{pmatrix}$$
+	$$U_2 = \begin{pmatrix} \sigma_x & 0 \\\ 0 & \sigma_x \end{pmatrix} =
+	\begin{pmatrix} 0&1&0&0 \\\ 1&0&0&0 \\\ 0&0&0&1 \\\ 0&0&1&0  \end{pmatrix}$$ 
+	The circuit for $U_1$ is an open CNOT gate, which is just a regular CNOT with $\sigma_x$ applied before and after the control. Next, since $U_2=I\otimes \sigma_x$, its circuit is a single $\sigma_x$ gate.  
+	<br>
+	The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
+	<br>
+	<p class="aligncenter">
+		<img src="/images/Example1.png" alt="centered image" /></p>
+	<style>
+	.aligncenter {
+		text-align: center;
+	}
+	</style>	
+	Here we used the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality">EPR pairs</a> trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
+</div>
 <p>I suggest trying the same for the other $\rho_j$, with $j\in\{0,2,3,4\}$ matrices and verifying that the resulting block encoded matrix $U$ is unitary for each of them.</p>
 <p>To recap, so far we have learned how to create a circuit to block encoding the $\rho_j$ matrices for $j\in\{0,\dots,4\}$. This on its own isn&rsquo;t very interesting, but the innovation in the GS24 paper is how easy it is to scale up.</p>
 <p>Informally, their Theorem 2 says: <em>if you have some matrix $A$ that is a tensor product of any combination of the $\rho_j$ terms, then $\bar{A}$ is simply the tensor product of the individual unitary completions.</em> The example below illustrates this point.</p>
 <div style="border-radius: 10px; background: beige; padding: 10px; color: black">
-	<h4 style="margin:0.3em 0">Example 2:</h4>
+	<h4 style="margin:0.3em 0"><u>Example 2</u></h4>
 	$$A = \rho_0 \otimes \rho_1 \otimes \rho_2 \implies \bar{A} = \rho_4 \otimes \sigma_x \otimes \sigma_x.$$ Therefore,
 	$$ U_1 = \begin{pmatrix} I-\rho_{003} & \rho_{003} \\\ \rho_{003} & I-\rho_{003} \end{pmatrix}, \quad U_2 = \begin{pmatrix} \rho_4\otimes\sigma_x\otimes\sigma_x & 0 \\\ 0 & \rho_4\otimes\sigma_x\otimes\sigma_x \end{pmatrix},$$
 	where I have used the notation $\rho_{ijk}=\rho_i\otimes\rho_j\otimes\rho_k$. As before, the $U_1$ circuit is constructed by a single control NOT gate, but this time there are multiple controls. Similarly, since $U_2$ has two $\sigma_x$ components, it is comprised of just two $\sigma_x$ gates. The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,1,%22X%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22],[1,1,1,1,%22%E2%80%A2%22,%22%E2%80%A2%22,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22]]}">here in Quirk</a> and reproduced below.  
@@ -475,12 +480,12 @@ Here we used the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quir
 <p>You may be wondering, how did you determine which controls to apply (open vs. closed) for the $U_1$ gate in Example 2? This comes directly from the proof of Theorem 3 in GS24 where they provide an algorithm for exactly this purpose, summarized as follows: <em>For each component of the matrix $A$, take the product with its transpose. If $\rho_j\rho_j^T = \rho_0$ then apply an open control, if $\rho_j\rho_j^T = \rho_3$ apply a closed control, and if $\rho_j\rho_j^T = \rho_4$ apply no control.</em></p>
 <p>For Example 2 we have, $A=\rho_{012}$ so for each component we have $\rho_0\rho_0^T=\rho_0$, $\rho_1\rho_1^T=\rho_0$, and $\rho_2\rho_2^T=\rho_3$, which results in an open control, open control, and closed control respectively.</p>
 <p>Next, let&rsquo;s go arbitrarily large.</p>
-<h4 id="example-3">Example 3:</h4>
-<blockquote>
-<p>$$A=\rho_{01234\dots 01234} \implies$$
-$$\bar{A}=\rho_4\otimes\sigma_x\otimes\sigma_x\otimes\rho_4\otimes\rho_4\otimes\dots\otimes\rho_4\otimes\sigma_x\otimes\sigma_x\otimes\rho_4\otimes\rho_4,$$
-$$\text{and}\quad AA^T = \rho_{00334\dots 00334}.$$
-For $N$ repitions of $ 01234$, the $U_1$ circuit is a multi-control NOT with $2N$ open controls and $2N$ closed controls. Similarly, the $U_2$ circuit has $2N$ $ \sigma_x$ gates. $\Box$</p></blockquote>
+<div style="border-radius: 10px; background: beige; padding: 10px; color: black">
+	<h4 style="margin:0.3em 0"><u>Example 3</u></h4>
+	$$A=\rho_{01234\dots 01234} \implies$$ $$\bar{A}=\rho_4\otimes\sigma_x\otimes\sigma_x\otimes\rho_4\otimes\rho_4\otimes\dots\otimes\rho_4\otimes\sigma_x\otimes\sigma_x\otimes\rho_4\otimes\rho_4,$$
+	$$\text{and}\quad AA^T = \rho_{00334\dots 00334}.$$
+	For $N$ repitions of $ 01234$, the $U_1$ circuit is a multi-control NOT with $2N$ open controls and $2N$ closed controls. Similarly, the $U_2$ circuit has $2N$ $ \sigma_x$ gates. $\Box$
+</div>
 <p>In Example 3 I once again used the shorthand $\rho_{ijk}=\rho_i\otimes\rho_j\otimes\rho_k$. This example demonstrates just how easy it is to determine the circuits for the block encoding of $A$ for even very large matrices.</p>
 <p>What this all means is that if we have some matrix $A$ that is a tensor product of $\rho_j$ terms, then we can find an efficient circuit to block encode it. However, for an arbitrary matrix $A$ it is unlikely to be split into a single term like this. So instead, we split $A$ into a linear combination of terms where each is individually formed by tensor products of the $\rho_j$ terms. Mathematically,
 $$A = \sum_{l=1}^{n_l}\alpha_l A_l, \quad A_l = \bigotimes_k\rho_{r_k}$$

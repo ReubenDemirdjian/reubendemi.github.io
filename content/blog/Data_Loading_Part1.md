@@ -68,20 +68,26 @@ $$U = U_1 U_2 := \begin{pmatrix} I-AA^T & AA^T \\\ AA^T & I-AA^T \end{pmatrix}\b
 
 where $\bar{A}$ is called the unitary completion of $A$. To find the circuit, we must therefore determine how to find $\bar{A}$. Thankfully, this is exactly what Theorem 1 of GS24 tells us: *The unitary completion of $\rho_1$ and $\rho_2$ is $\sigma_x$, where $\sigma_x$ is the Pauli-X matrix. Similarly, the unitary completion of $\rho_0$, $\rho_3$, and $\rho_4$ is $\rho_4$.* Below is a simple example to illustrate this. 
 
-#### Example 1: 
-> Suppose we have $A=\rho_1$, then by Theorem 1 of GS24, $\bar{A} = \sigma_x$. Therefore, 
-$$U_1 = \begin{pmatrix} \rho_3 & \rho_0 \\\ \rho_0 & \rho_3 \end{pmatrix} = \
-\begin{pmatrix} 0&0&1&0 \\\ 0&1&0&0 \\\ 1&0&0&0 \\\ 0&0&0&1 \end{pmatrix}$$
-$$U_2 = \begin{pmatrix} \sigma_x & 0 \\\ 0 & \sigma_x \end{pmatrix} =
-\begin{pmatrix} 0&1&0&0 \\\ 1&0&0&0 \\\ 0&0&0&1 \\\ 0&0&1&0  \end{pmatrix}$$ 
-\
->The circuit for $U_1$ is an open CNOT gate, which is just a regular CNOT with $\sigma_x$ applied before and after the control. Next, since $U_2=I\otimes \sigma_x$, its circuit is a single $\sigma_x$ gate.  
-<br>
->The full circuit is given [here in Quirk](https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}) and reproduced below.  
-<br>
->![Ex1](/images/Example1.png)
-<br>
->Here we used the [EPR pairs](https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality) trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
+<div style="border-radius: 10px; background: beige; padding: 10px; color: black">
+	<h4 style="margin:0.3em 0"><u>Example 1</u></h4> 
+	Suppose we have $A=\rho_1$, then by Theorem 1 of GS24, $\bar{A} = \sigma_x$. Therefore, 
+	$$U_1 = \begin{pmatrix} \rho_3 & \rho_0 \\\ \rho_0 & \rho_3 \end{pmatrix} = \
+	\begin{pmatrix} 0&0&1&0 \\\ 0&1&0&0 \\\ 1&0&0&0 \\\ 0&0&0&1 \end{pmatrix}$$
+	$$U_2 = \begin{pmatrix} \sigma_x & 0 \\\ 0 & \sigma_x \end{pmatrix} =
+	\begin{pmatrix} 0&1&0&0 \\\ 1&0&0&0 \\\ 0&0&0&1 \\\ 0&0&1&0  \end{pmatrix}$$ 
+	The circuit for $U_1$ is an open CNOT gate, which is just a regular CNOT with $\sigma_x$ applied before and after the control. Next, since $U_2=I\otimes \sigma_x$, its circuit is a single $\sigma_x$ gate.  
+	<br>
+	The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
+	<br>
+	<p class="aligncenter">
+		<img src="/images/Example1.png" alt="centered image" /></p>
+	<style>
+	.aligncenter {
+		text-align: center;
+	}
+	</style>	
+	Here we used the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality">EPR pairs</a> trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
+</div>
 
 I suggest trying the same for the other $\rho_j$, with $j\in\\{0,2,3,4\\}$ matrices and verifying that the resulting block encoded matrix $U$ is unitary for each of them.
 
@@ -90,7 +96,7 @@ To recap, so far we have learned how to create a circuit to block encoding the $
 Informally, their Theorem 2 says: *if you have some matrix $A$ that is a tensor product of any combination of the $\rho_j$ terms, then $\bar{A}$ is simply the tensor product of the individual unitary completions.* The example below illustrates this point.
 
 <div style="border-radius: 10px; background: beige; padding: 10px; color: black">
-	<h4 style="margin:0.3em 0">Example 2:</h4>
+	<h4 style="margin:0.3em 0"><u>Example 2</u></h4>
 	$$A = \rho_0 \otimes \rho_1 \otimes \rho_2 \implies \bar{A} = \rho_4 \otimes \sigma_x \otimes \sigma_x.$$ Therefore,
 	$$ U_1 = \begin{pmatrix} I-\rho_{003} & \rho_{003} \\\ \rho_{003} & I-\rho_{003} \end{pmatrix}, \quad U_2 = \begin{pmatrix} \rho_4\otimes\sigma_x\otimes\sigma_x & 0 \\\ 0 & \rho_4\otimes\sigma_x\otimes\sigma_x \end{pmatrix},$$
 	where I have used the notation $\rho_{ijk}=\rho_i\otimes\rho_j\otimes\rho_k$. As before, the $U_1$ circuit is constructed by a single control NOT gate, but this time there are multiple controls. Similarly, since $U_2$ has two $\sigma_x$ components, it is comprised of just two $\sigma_x$ gates. The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,%22X%22],[1,1,1,1,%22X%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22],[1,1,1,1,%22%E2%80%A2%22,%22%E2%80%A2%22,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,%22X%22,%22X%22]]}">here in Quirk</a> and reproduced below.  
@@ -111,11 +117,12 @@ For Example 2 we have, $A=\rho_{012}$ so for each component we have $\rho_0\rho_
 
 Next, let's go arbitrarily large. 
 
-#### Example 3:
-> $$A=\rho_{01234\dots 01234} \implies$$
-$$\bar{A}=\rho_4\otimes\sigma_x\otimes\sigma_x\otimes\rho_4\otimes\rho_4\otimes\dots\otimes\rho_4\otimes\sigma_x\otimes\sigma_x\otimes\rho_4\otimes\rho_4,$$
-$$\text{and}\quad AA^T = \rho_{00334\dots 00334}.$$
-For $N$ repitions of $ 01234$, the $U_1$ circuit is a multi-control NOT with $2N$ open controls and $2N$ closed controls. Similarly, the $U_2$ circuit has $2N$ $ \sigma_x$ gates. $\Box$
+<div style="border-radius: 10px; background: beige; padding: 10px; color: black">
+	<h4 style="margin:0.3em 0"><u>Example 3</u></h4>
+	$$A=\rho_{01234\dots 01234} \implies$$ $$\bar{A}=\rho_4\otimes\sigma_x\otimes\sigma_x\otimes\rho_4\otimes\rho_4\otimes\dots\otimes\rho_4\otimes\sigma_x\otimes\sigma_x\otimes\rho_4\otimes\rho_4,$$
+	$$\text{and}\quad AA^T = \rho_{00334\dots 00334}.$$
+	For $N$ repitions of $ 01234$, the $U_1$ circuit is a multi-control NOT with $2N$ open controls and $2N$ closed controls. Similarly, the $U_2$ circuit has $2N$ $ \sigma_x$ gates. $\Box$
+</div>
 
 In Example 3 I once again used the shorthand $\rho_{ijk}=\rho_i\otimes\rho_j\otimes\rho_k$. This example demonstrates just how easy it is to determine the circuits for the block encoding of $A$ for even very large matrices.
 
