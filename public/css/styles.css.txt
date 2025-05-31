@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: flex-start; /* Align items at the start */
+}
+
+.text {
+    flex: 1; /* Take up available space */
+    padding-right: 20px; /* Space between text and image */
+}
+
+.image {
+    max-width: 20%; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Adjust this value to lower the image */
+}
