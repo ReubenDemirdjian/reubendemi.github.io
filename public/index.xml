@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Hugo Simple</title>
-    <link>https://ReubenDemirdjian.github.io/</link>
-    <description>Recent content on Hugo Simple</description>
+    <title>Reuben Demirdjian</title>
+    <link>https://ReubenDemirdjian.github.io/website/</link>
+    <description>Recent content on Reuben Demirdjian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ReubenDemi@gmail.com (Reuben Demirdjian)</managingEditor>
     <webMaster>ReubenDemi@gmail.com (Reuben Demirdjian)</webMaster>
     <lastBuildDate>Wed, 28 May 2025 22:22:51 -0700</lastBuildDate>
-    <atom:link href="https://ReubenDemirdjian.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ReubenDemirdjian.github.io/website/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CV</title>
-      <link>https://ReubenDemirdjian.github.io/cv/</link>
+      <link>https://ReubenDemirdjian.github.io/website/cv/</link>
       <pubDate>Mon, 26 May 2025 13:36:46 -0700</pubDate><author>ReubenDemi@gmail.com (Reuben Demirdjian)</author>
-      <guid>https://ReubenDemirdjian.github.io/cv/</guid>
+      <guid>https://ReubenDemirdjian.github.io/website/cv/</guid>
       <description>&lt;div class=&#34;container&#34; style=&#34;display: flex; align-items: flex-start;&#34;&gt;
     &lt;div class=&#34;text&#34; style=&#34;flex: 1; padding-right: 20px;&#34;&gt;
 		&lt;h2 style=&#34;margin-bottom: 10px;&#34;&gt;
@@ -306,9 +306,9 @@
     </item>
     <item>
       <title>Matrix Decomposition Trees</title>
-      <link>https://ReubenDemirdjian.github.io/matrix_decomposition_trees/</link>
+      <link>https://ReubenDemirdjian.github.io/website/matrix_decomposition_trees/</link>
       <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate><author>ReubenDemi@gmail.com (Reuben Demirdjian)</author>
-      <guid>https://ReubenDemirdjian.github.io/matrix_decomposition_trees/</guid>
+      <guid>https://ReubenDemirdjian.github.io/website/matrix_decomposition_trees/</guid>
       <description>&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
 MathJax.Hub.Config({
   tex2jax: {
@@ -363,9 +363,9 @@ MathJax.Hub.Config({
     </item>
     <item>
       <title>Data Loading on a Quantum Computer: Part 1</title>
-      <link>https://ReubenDemirdjian.github.io/data_loading_part1/</link>
+      <link>https://ReubenDemirdjian.github.io/website/data_loading_part1/</link>
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate><author>ReubenDemi@gmail.com (Reuben Demirdjian)</author>
-      <guid>https://ReubenDemirdjian.github.io/data_loading_part1/</guid>
+      <guid>https://ReubenDemirdjian.github.io/website/data_loading_part1/</guid>
       <description>&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
 MathJax.Hub.Config({
   tex2jax: {
@@ -451,7 +451,7 @@ if loading the data loading is slow, then all advantage is lost before the quant
 	The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
 	<br>
 	<p class="aligncenter">
-		<img src="data_loading_part1/Example1.png" alt="centered image" /></p>
+		<img src="/images/Example1.png" alt="centered image" /></p>
 	<style>
 	.aligncenter {
 		text-align: center;
@@ -459,10 +459,10 @@ if loading the data loading is slow, then all advantage is lost before the quant
 	</style>	
 	Here we used the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality">EPR pairs</a> trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
 </div>
-<p>test1
+<p>testing
 <br></p>
 <p class="aligncenter">
-	<img src="/data_loading_part1/Example1.png" alt="centered image" /></p>
+	<img src="images/Example1.png" alt="centered image" /></p>
 <style>
 .aligncenter {
 	text-align: center;

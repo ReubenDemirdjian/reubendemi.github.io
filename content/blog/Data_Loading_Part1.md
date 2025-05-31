@@ -80,7 +80,7 @@ where $\bar{A}$ is called the unitary completion of $A$. To find the circuit, we
 	The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
 	<br>
 	<p class="aligncenter">
-		<img src="data_loading_part1/Example1.png" alt="centered image" /></p>
+		<img src="/images/Example1.png" alt="centered image" /></p>
 	<style>
 	.aligncenter {
 		text-align: center;
@@ -89,16 +89,15 @@ where $\bar{A}$ is called the unitary completion of $A$. To find the circuit, we
 	Here we used the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality">EPR pairs</a> trick, in which the state display shows the matrix of the operation. Note that the two Hadamard gates and first two CNOT gates are used to create the EPR pairs and have nothing to do with our block encoding. You can see that by applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_1$ as desired. $\Box$
 </div>
 
-test1
+testing
 <br>
 <p class="aligncenter">
-	<img src="/data_loading_part1/Example1.png" alt="centered image" /></p>
+	<img src="images/Example1.png" alt="centered image" /></p>
 <style>
 .aligncenter {
 	text-align: center;
 }
 </style>
-
 
 I suggest trying the same for the other $\rho_j$, with $j\in\\{0,2,3,4\\}$ matrices and verifying that the resulting block encoded matrix $U$ is unitary for each of them.
 
