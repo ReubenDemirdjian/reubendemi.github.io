@@ -80,7 +80,7 @@ where $\bar{A}$ is called the unitary completion of $A$. To find the circuit, we
 	The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,1,%22X%22],[1,%22%E2%80%A2%22,1,%22X%22],[1,1,%22X%22],[1,1,%22X%22],[1,1,%22%E2%80%A2%22,%22X%22],[1,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
 	<br>
 	<p class="aligncenter">
-		<img src="/images/Example1.png" alt="centered image" /></p>
+		<img src="Example1.png" alt="centered image" /></p>
 	<style>
 	.aligncenter {
 		text-align: center;
