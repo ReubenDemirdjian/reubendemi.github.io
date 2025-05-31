@@ -133,7 +133,7 @@ here 1
 
 here 2
 <p class="aligncenter">
-	<img src="/static/images/Example2.png" alt="centered image" /></p>
+	<img src="/main/static/images/Example2.png" alt="centered image" /></p>
 <style>
 .aligncenter {
 	text-align: center;
