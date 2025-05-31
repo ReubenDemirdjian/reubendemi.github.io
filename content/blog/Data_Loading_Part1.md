@@ -99,6 +99,21 @@ $$ U_1 = \begin{pmatrix} I-\rho_{003} & \rho_{003} \\\ \rho_{003} & I-\rho_{003}
 <br>
 >By applying the product $U_1U_2$ we obtain the appropriate block encoding for $\rho_{012}$ as desired. $\Box$
 
+![Ex2](images/Example2.png)
+![Ex2](/images/Example2.png)
+![Ex2](/website/static/images/Example2.png)
+![Ex2](website/static/images/Example2.png)
+<p class="aligncenter">
+    <img src="/static/images/wave_breaking.gif" alt="centered image" />
+	<figcaption> Credit:  <a href="https://in.pinterest.com/iammii/">Christel Boon</a></figcaption>
+</p>
+<p class="aligncenter">
+    <img src="/static/images/Example2.png" alt="centered image" />
+	<figcaption> Credit:  <a href="https://in.pinterest.com/iammii/">Christel Boon</a></figcaption>
+</p>
+
+
+
 You may be wondering, how did you determine which controls to apply (open vs. closed) for the $U_1$ gate in Example 2? This comes directly from the proof of Theorem 3 in GS24 where they provide an algorithm for exactly this purpose, summarized as follows: *For each component of the matrix $A$, take the product with its transpose. If $\rho_j\rho_j^T = \rho_0$ then apply an open control, if $\rho_j\rho_j^T = \rho_3$ apply a closed control, and if $\rho_j\rho_j^T = \rho_4$ apply no control.* 
 
 For Example 2 we have, $A=\rho_{012}$ so for each component we have $\rho_0\rho_0^T=\rho_0$, $\rho_1\rho_1^T=\rho_0$, and $\rho_2\rho_2^T=\rho_3$, which results in an open control, open control, and closed control respectively.
