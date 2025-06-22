@@ -1,8 +1,8 @@
 +++
 author = "Reuben Demirdjian"
 title = "Data Loading on a Quantum Computer: Part 1"
-date = "2024-10-23"
-description = "An overview of some recent articles on quantum data loading"
+date = "2025-02-23"
+description = "An overview of a recent article on quantum data loading"
 +++
 
 <script type="text/x-mathjax-config">
@@ -31,7 +31,7 @@ MathJax.Hub.Config({
 });
 </script>
 
-## Introduction
+### Introduction
 
 One of the bottlenecks for certain quantum algorithms is loading classical data 
 onto the quantum computer. Suppose you have developed an algorithm that 
@@ -57,7 +57,7 @@ Ultimately, a solution to this linear system will provide an approximate solutio
 
 ---
 
-## Efficient Circuits for Sparse, Structured Matrices
+### Efficient Circuits for Sparse, Structured Matrices
 
 Before we can explain our contribution, we must first give an overview of the study that we built upon, that is, [Gnanasekaran and Surana (2024)](#7), henceforth called GS24. First, let's introduce a set that will be used extensively throughout this blog post.
 
@@ -146,7 +146,7 @@ While this is a powerful tool for those very specific kinds of matrices, what if
 ---
 
 
-## References
+### References
 <a id="1">[1]</a> 
 Harrow, Aram W., Avinatan Hassidim, and Seth Lloyd. "Quantum algorithm for linear systems of equations." Physical review letters 103.15 (2009): 150502.
 

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head><script src="/website/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=website/livereload" data-no-instant defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="/website/images/wave1.png" />
@@ -12,7 +12,7 @@
 />
 <meta
   name="description"
-  content="An overview of some recent articles on quantum data loading"
+  content="An overview of a recent article on quantum data loading"
 />
 <meta
   name="keywords"
@@ -24,15 +24,15 @@
 
 
 
-<meta property="og:url" content="https://ReubenDemirdjian.github.io/website/data_loading_part1/">
+<meta property="og:url" content="http://localhost:1313/website/data_loading_part1/">
   <meta property="og:site_name" content="Reuben Demirdjian">
   <meta property="og:title" content="Data Loading on a Quantum Computer: Part 1">
-  <meta property="og:description" content="An overview of some recent articles on quantum data loading">
+  <meta property="og:description" content="An overview of a recent article on quantum data loading">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2024-10-23T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-10-23T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-02-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-23T00:00:00+00:00">
 
 
 
@@ -40,16 +40,16 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Data Loading on a Quantum Computer: Part 1">
-  <meta name="twitter:description" content="An overview of some recent articles on quantum data loading">
+  <meta name="twitter:description" content="An overview of a recent article on quantum data loading">
 
 
 
 
 
   <meta itemprop="name" content="Data Loading on a Quantum Computer: Part 1">
-  <meta itemprop="description" content="An overview of some recent articles on quantum data loading">
-  <meta itemprop="datePublished" content="2024-10-23T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-10-23T00:00:00+00:00">
+  <meta itemprop="description" content="An overview of a recent article on quantum data loading">
+  <meta itemprop="datePublished" content="2025-02-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-02-23T00:00:00+00:00">
   <meta itemprop="wordCount" content="1526">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -92,7 +92,7 @@
 
 <h1>Data Loading on a Quantum Computer: Part 1</h1>
 
-  <p>An overview of some recent articles on quantum data loading</p>
+  <p>An overview of a recent article on quantum data loading</p>
 
 
 <script type="text/javascript"
@@ -110,10 +110,10 @@
         <i>
           <time
             style="color: var(--text-light);"
-            datetime="2024-10-23"
+            datetime="2025-02-23"
             pubdate
           >
-            2024-10-23
+            2025-02-23
           </time>
         </i>
       </p>
@@ -145,7 +145,7 @@ MathJax.Hub.Config({
     }
 });
 </script>
-<h2 id="introduction">Introduction</h2>
+<h3 id="introduction">Introduction</h3>
 <p>One of the bottlenecks for certain quantum algorithms is loading classical data
 onto the quantum computer. Suppose you have developed an algorithm that
 solves a particular problem exponentially faster than the best known classical methods,
@@ -163,7 +163,7 @@ if loading the data loading is slow, then all advantage is lost before the quant
 <p>You might be wondering, how do you use a quantum linear solver to solve the nonlinear Burgers&rsquo; equation? Without going into the weeds<sup><a href="#6">6</a></sup>, the nonlinear PDE is transformed into a (ludicrously large) linear system of the form $A\vec{x}=\vec{b}$. This enables us to circumvent the difficulty of solving nonliner equations with quantum computers.</p>
 <p>Ultimately, a solution to this linear system will provide an approximate solution to the desired Burgers&rsquo; equation. Hence, we need an algorithm to load the classical matrix $A$ onto the quantum computer to then obtain a solution using one of the many quantum solvers. For this writeup, we will be relying on the VQLS method.</p>
 <hr>
-<h2 id="efficient-circuits-for-sparse-structured-matrices">Efficient Circuits for Sparse, Structured Matrices</h2>
+<h3 id="efficient-circuits-for-sparse-structured-matrices">Efficient Circuits for Sparse, Structured Matrices</h3>
 <p>Before we can explain our contribution, we must first give an overview of the study that we built upon, that is, <a href="#7">Gnanasekaran and Surana (2024)</a>, henceforth called GS24. First, let&rsquo;s introduce a set that will be used extensively throughout this blog post.</p>
 <p>$$\rho_0=\begin{pmatrix}1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix},\quad \rho_1=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix},\quad \rho_2=\begin{pmatrix}0&amp;0\\1&amp;0\end{pmatrix},\\ \rho_3=\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix},\quad \rho_4=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}.$$</p>
 <p>Next, suppose that we have some non-unitary matrix $A$ that we block encode as</p>
@@ -227,7 +227,7 @@ where $\alpha_l$ is a coefficient, and $r_k\in\{0,1,2,3,4\}$ is a set that gener
 <p>This is useful because now each $A_l$ can be block encoded &ndash; following the methods outlined above &ndash; and implemented into the VQLS routine to find a solution!</p>
 <p>While this is a powerful tool for those very specific kinds of matrices, what if our matrix $A$ takes a similar but different form? Can we adapt this technique to once again create efficient circuits? The answer is yes! And that is the subject of the next blog post.</p>
 <hr>
-<h2 id="references">References</h2>
+<h3 id="references">References</h3>
 <p><a id="1">[1]</a>
 Harrow, Aram W., Avinatan Hassidim, and Seth Lloyd. &ldquo;Quantum algorithm for linear systems of equations.&rdquo; Physical review letters 103.15 (2009): 150502.</p>
 <p><a id="2">[2]</a>

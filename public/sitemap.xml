@@ -2,18 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ReubenDemirdjian.github.io/website/blog/</loc>
+    <loc>http://localhost:1313/website/blog/</loc>
     <lastmod>2025-05-28T22:22:51-07:00</lastmod>
   </url><url>
-    <loc>https://ReubenDemirdjian.github.io/website/</loc>
+    <loc>http://localhost:1313/website/</loc>
     <lastmod>2025-05-28T22:22:51-07:00</lastmod>
   </url><url>
-    <loc>https://ReubenDemirdjian.github.io/website/cv/</loc>
+    <loc>http://localhost:1313/website/cv/</loc>
     <lastmod>2025-05-26T13:36:46-07:00</lastmod>
   </url><url>
-    <loc>https://ReubenDemirdjian.github.io/website/data_loading_part1/</loc>
-    <lastmod>2024-10-23T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/website/data_loading_part2/</loc>
+    <lastmod>2025-04-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ReubenDemirdjian.github.io/website/tags/</loc>
+    <loc>http://localhost:1313/website/data_loading_part1/</loc>
+    <lastmod>2025-02-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website/tags/</loc>
   </url>
 </urlset>
