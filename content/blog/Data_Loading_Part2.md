@@ -203,7 +203,7 @@ Even though this linear system is substantially larger than the previous version
 	So, by inserting $A^{(e)}$ into $L^{(e)}$ we simply need to find decompositions for $A_1^{(e),1}$, $A_2^{(e),1}$, and $A_2^{(e),2}$, which is a  much easier problem than the original one of needing to find a decomposition for $L$ from eq. \eqref{eqn:L}. 
 </div> 
 
-This demonstrates the key advantage of using this Carleman embedding (zero-padding) method. That being said, our job is not over since we must now decompose each of the $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ terms. But, importantly, we have reduced the problem from a daunting one to one that is more manageable. In Part 3 of this series, I will show how to full decompose the matrix $L^{(e)}$ introduced here into explicit circuits to be run with the VQLS method. 
+This demonstrates the key advantage of using this Carleman embedding (zero-padding) method. That being said, our job is not over since we must now decompose each of the $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ terms. But, importantly, we have reduced the problem from a daunting one to one that is more manageable. In Part 3 of this series, I will show how to fully decompose the matrix $L^{(e)}$ introduced here into explicit circuits to be run with the VQLS method. 
 
 
 ## References
