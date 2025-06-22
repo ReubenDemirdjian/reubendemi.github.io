@@ -33,7 +33,7 @@ MathJax.Hub.Config({
 
 ### Introduction
 
-This post is part 2 of a series where I discuss data loading for solving linear systems of equations. Our method extends the approach pioneerd by [Gnanasekaran and Surana (2024)](#1), which I discussed in <a href="http://localhost:1313/website/data_loading_part1/">Part 1</a>. I highly recommend that you first read Part 1, otherwise this post may not make much sense. 
+This post is part 2 of a series where I discuss data loading for solving linear systems of equations. Our method extends the approach pioneerd by [Gnanasekaran and Surana (2024)](#1), which I discussed in <a href="https://reubendemirdjian.github.io/data_loading_part1/">Part 1</a>. I highly recommend that you first read Part 1, otherwise this post may not make much sense. 
 
 Here, I'll break down the methods used in my [recent article](#2) where we <em>solved</em> the data loading problem for the 1D Burgers' equation - a paradigmatic nonlinear partial differential equation (PDE) relevant for fluid dynamics. Here I put solved in italics because our method applies specifically to the [VQLS](#3) algorithm, which utilizes the linear combination of unitaries (LCU) theorem. It is possible that our mehtod also applies to other quantum linear system algorithms that utilize LCU, but that remains to be seen and is the subject of future work. 
 
