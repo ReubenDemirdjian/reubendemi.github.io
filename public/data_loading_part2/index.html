@@ -50,7 +50,7 @@
   <meta itemprop="description" content="An overview of a recent journal article of mine">
   <meta itemprop="datePublished" content="2025-04-30T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-04-30T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1668">
+  <meta itemprop="wordCount" content="1672">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
     
@@ -146,7 +146,7 @@ MathJax.Hub.Config({
 });
 </script>
 <h3 id="introduction">Introduction</h3>
-<p>This post is part 2 of a series where I discuss data loading for solving linear systems of equations. Our method extends the approach pioneerd by <a href="#1">Gnanasekaran and Surana (2024)</a>, which I discussed in <a href="http://localhost:1313/website/data_loading_part1/">Part 1</a>. I highly recommend that you first read Part 1, otherwise this post may not make much sense.</p>
+<p>This post is part 2 of a series where I discuss data loading for solving linear systems of equations. Our method extends the approach pioneerd by <a href="#1">Gnanasekaran and Surana (2024)</a>, which I discussed in <a href="https://reubendemirdjian.github.io/data_loading_part1/">Part 1</a>. I highly recommend that you first read Part 1, otherwise this post may not make much sense.</p>
 <p>Here, I&rsquo;ll break down the methods used in my <a href="#2">recent article</a> where we <em>solved</em> the data loading problem for the 1D Burgers&rsquo; equation - a paradigmatic nonlinear partial differential equation (PDE) relevant for fluid dynamics. Here I put solved in italics because our method applies specifically to the <a href="#3">VQLS</a> algorithm, which utilizes the linear combination of unitaries (LCU) theorem. It is possible that our mehtod also applies to other quantum linear system algorithms that utilize LCU, but that remains to be seen and is the subject of future work.</p>
 <p>The goal of this writeup is as follows. Consider some (huge) matrix $\mathcal{A}\in\mathbb{R}^{N\times N}$, then we want to find
 $$
@@ -283,23 +283,17 @@ Even though this linear system is substantially larger than the previous version
 	\begin{equation}
 		L^{(e)}
 		=
-		(I_4 - \rho_0\otimes\rho_0) \otimes A^{(e)}
+		(\rho_4^{\otimes 2} - \rho_0\otimes\rho_0) \otimes A^{(e)}
 		+ 
-		(
-		I_4
-		-
-		\rho_0\otimes\rho_2
-		-
-		\rho_2\otimes\rho_1
-		-
-		\rho_3\otimes\rho_2
-		) \otimes I_{\alpha N^\alpha} .
+		(\rho_4^{\otimes 2} - \rho_4\otimes\rho_2 - \rho_2\otimes\rho_1)
+		\otimes\rho_4^{\otimes 5}.
 	\end{equation}
 	$$
 	<br>
 	So, by inserting $A^{(e)}$ into $L^{(e)}$ we simply need to find decompositions for $A_1^{(e),1}$, $A_2^{(e),1}$, and $A_2^{(e),2}$, which is a  much easier problem than the original one of needing to find a decomposition for $L$ from eq. \eqref{eqn:L}. 
 </div> 
-<p>This demonstrates the key advantage of using this Carleman embedding (zero-padding) method. That being said, our job is not over since we must now decompose each of the $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ terms. But, importantly, we have reduced the problem from a daunting one to one that is more manageable. In Part 3 of this series, I will show how to full decompose the matrix $L^{(e)}$ introduced here into explicit circuits to be run with the VQLS method.</p>
+<p>This demonstrates the key advantage of using this Carleman embedding (zero-padding) method. That being said, our job is not over since we must now decompose each of the $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ terms. But, importantly, we have reduced the problem from a daunting one to one that is more manageable. In Part 3 of this series, I will show how to fully decompose the matrix $L^{(e)}$ introduced here into explicit circuits to be run with the VQLS method.</p>
+<p><strong>Questions or comments?</strong> ReubenDemi [at] gmail [dot] com</p>
 <h2 id="references">References</h2>
 <p><a id="1">[1]</a>
 A. Gnanasekaran and A. Surana, &ldquo;Efficient Variational Quantum Linear Solver for Structured Sparse Matrices,&rdquo; 2024 IEEE International Conference on Quantum Computing and Engineering (QCE), Montreal, QC, Canada, 2024, pp. 199-210, <a href="https://arxiv.org/abs/2404.16991">doi: 10.1109/QCE60285.2024.00033</a></p>

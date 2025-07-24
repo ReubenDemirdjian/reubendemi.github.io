@@ -8,8 +8,70 @@
     <language>en</language>
     <managingEditor>ReubenDemi@gmail.com (Reuben Demirdjian)</managingEditor>
     <webMaster>ReubenDemi@gmail.com (Reuben Demirdjian)</webMaster>
-    <lastBuildDate>Wed, 28 May 2025 22:22:51 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/website/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WISER/Womanium Talk</title>
+      <link>http://localhost:1313/website/wiser_womanium_talk/</link>
+      <pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><author>ReubenDemi@gmail.com (Reuben Demirdjian)</author>
+      <guid>http://localhost:1313/website/wiser_womanium_talk/</guid>
+      <description>&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [[&#39;$&#39;,&#39;$&#39;]],
+    displayMath: [[&#39;$$&#39;,&#39;$$&#39;]],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;],
+    TeX: { equationNumbers: { autoNumber: &#34;AMS&#34; },
+         extensions: [&#34;AMSmath.js&#34;, &#34;AMSsymbols.js&#34;] }
+  }
+});
+&lt;/script&gt;
+&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
+  MathJax.Hub.Queue(function() {
+    // Fix &lt;code&gt; tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += &#39; has-jax&#39;;
+    }
+});
+&lt;/script&gt;
+&lt;p&gt;I gave this talk on July 14th, 2025 as a part of the &lt;a href=&#34;https://www.thewiser.org/&#34;&gt;WISER/Womanium&lt;/a&gt; Quantum Program. I also recommend checking out the other talks on their channel because there are truly some amazing ones on there!&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<p>I gave this talk on July 14th, 2025 as a part of the <a href="https://www.thewiser.org/">WISER/Womanium</a> Quantum Program. I also recommend checking out the other talks on their channel because there are truly some amazing ones on there!</p>
+<p>The intent of this talk is to provide a bird&rsquo;s-eye view of a particular methodology for using quantum computers to solve nonlinear differential equations, and some of the challenges that come along with it. I hope that you enjoy!</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/v_FzYD7HjoQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+]]></content:encoded>
+    </item>
     <item>
       <title>CV</title>
       <link>http://localhost:1313/website/cv/</link>
@@ -334,7 +396,7 @@ MathJax.Hub.Config({
 });
 &lt;/script&gt;
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;This post is part 2 of a series where I discuss data loading for solving linear systems of equations. Our method extends the approach pioneerd by &lt;a href=&#34;#1&#34;&gt;Gnanasekaran and Surana (2024)&lt;/a&gt;, which I discuss in &lt;a href=&#34;http://localhost:1313/website/data_loading_part1/&#34;&gt;Part 1&lt;/a&gt;. I highly recommend that you first read Part 1, otherwise this post may not make much sense.&lt;/p&gt;</description>
+&lt;p&gt;This post is part 2 of a series where I discuss data loading for solving linear systems of equations. Our method extends the approach pioneerd by &lt;a href=&#34;#1&#34;&gt;Gnanasekaran and Surana (2024)&lt;/a&gt;, which I discussed in &lt;a href=&#34;https://reubendemirdjian.github.io/data_loading_part1/&#34;&gt;Part 1&lt;/a&gt;. I highly recommend that you first read Part 1, otherwise this post may not make much sense.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {
@@ -360,16 +422,16 @@ MathJax.Hub.Config({
 });
 </script>
 <h3 id="introduction">Introduction</h3>
-<p>This post is part 2 of a series where I discuss data loading for solving linear systems of equations. Our method extends the approach pioneerd by <a href="#1">Gnanasekaran and Surana (2024)</a>, which I discuss in <a href="http://localhost:1313/website/data_loading_part1/">Part 1</a>. I highly recommend that you first read Part 1, otherwise this post may not make much sense.</p>
-<p>Here, I&rsquo;ll break down the methods used in my <a href="#2">recent article</a> where we <em>solved</em> the data loading problem for the 1D Burgers&rsquo; equation - a paradigmatic nonlinear partial differential equation (PDE) relevant for fluid dynamics. Here I put solved in italics because our method applies specifically to the VQLS [citation] algorithm, which utilizes the linear combination of unitaries (LCU) theorem. It is possible that our mehtod also applies to other quantum linear system algorithms that utilize LCU, but that remains to be seen and is the subject of future work.</p>
+<p>This post is part 2 of a series where I discuss data loading for solving linear systems of equations. Our method extends the approach pioneerd by <a href="#1">Gnanasekaran and Surana (2024)</a>, which I discussed in <a href="https://reubendemirdjian.github.io/data_loading_part1/">Part 1</a>. I highly recommend that you first read Part 1, otherwise this post may not make much sense.</p>
+<p>Here, I&rsquo;ll break down the methods used in my <a href="#2">recent article</a> where we <em>solved</em> the data loading problem for the 1D Burgers&rsquo; equation - a paradigmatic nonlinear partial differential equation (PDE) relevant for fluid dynamics. Here I put solved in italics because our method applies specifically to the <a href="#3">VQLS</a> algorithm, which utilizes the linear combination of unitaries (LCU) theorem. It is possible that our mehtod also applies to other quantum linear system algorithms that utilize LCU, but that remains to be seen and is the subject of future work.</p>
 <p>The goal of this writeup is as follows. Consider some (huge) matrix $\mathcal{A}\in\mathbb{R}^{N\times N}$, then we want to find
 $$
 \begin{equation}
-\mathcal{A} = \sum_{l=0}^{N_s} c_l\mathcal{A}_l
+\mathcal{A} = \sum_{l=1}^{N_s} c_l\mathcal{A}_l
 \end{equation}
 $$
-where $c_l\in\mathbb{C}$ and $\mathcal{A}_l\in\mathbb{R}^{N\times N}$ are specific types of <u>nonunitary</u> matrices. These $\mathcal{A}_l$ are specially defined to be block encoded within matrices that have efficient circuit implementations for VQLS. A key part of this method is that $N_s$ be a polylogarithmic (polylog) function of $N$, otherwise any quantum advantage is lost to data loading.</p>
-<p>You might be wondering, isn&rsquo;t it simpler to find a decomposition such that the $\mathcal{A}_l$ matrices are themselves unitary thereby saving ourselves from the block encoding step? The answer is yes, that is the ideal approach. However, there are instances when this sort of decomposition is not possible with a polylog $N_s$. In those instances, our block encoding method is simply an alternative for data loading and requires only a single qubit more of overhead.</p>
+where $c_l\in\mathbb{C}$ and $\mathcal{A}_l\in\mathbb{R}^{N\times N}$ are specific types of <u>nonunitary</u> matrices. These $\mathcal{A}_l$ are specially defined to be block encoded within unitary matrices that have efficient circuit implementations for VQLS. A key part of this method is that $N_s$ be a polylogarithmic (polylog) function of $N$, otherwise any quantum advantage is lost to data loading.</p>
+<p>You might be wondering, isn&rsquo;t it simpler to find a decomposition such that the $\mathcal{A}_l$ matrices are themselves unitary thereby saving ourselves from the block encoding step? The answer is yes, that is the ideal approach. However, there are instances when this sort of decomposition is not possible with an $N_s$ that is polylog. In those instances, our block encoding method is simply an alternative for data loading and requires only a single qubit more of overhead.</p>
 <h3 id="transforming-from-nonlinear-to-linear">Transforming from Nonlinear to Linear</h3>
 <p>Before we discuss data loading, we first need to setup the problem. Consider the generic second order nonlinear ordinary differential equation (ODE)</p>
 <p>$$\begin{equation}\tag{1}\label{eqn:IVP}
@@ -378,13 +440,13 @@ where $c_l\in\mathbb{C}$ and $\mathcal{A}_l\in\mathbb{R}^{N\times N}$ are specif
 <p>where $\vec{f}(t) = \bigl( f_1(t),\dots,f_N(t) \bigr)^T\in\mathbb{R}^N$ and $F_k\in\mathbb{R}^{N\times N^k}$ for $k\in\{1,2\}$. The Burgers&rsquo; equation can be written in the above form, but for now we will work with the generalized form.</p>
 <p>Next, we implement the following on eq. \eqref{eqn:IVP}:</p>
 <ol>
-<li>Carleman linearization from Liu et al. (2021)[cite] &ndash; transforms our finite nonlinear ODE into an infinite linear ODE,</li>
+<li>Carleman linearization from <a href="#4">Liu et al. (2021)</a> &ndash; transforms our finite nonlinear ODE into an infinite linear ODE,</li>
 <li>Truncation of the infinite ODE to order $\alpha$ &ndash; forms a finite linear ODE,</li>
 <li>Temporal discretization using backward Euler with $n_t$ time steps of size $\Delta t$ &ndash; transforms the finite linear ODE into a finite linear system of equations.</li>
 </ol>
 <p>These methods transform eq. \eqref{eqn:IVP} into a linear system of equations of the form $L\vec{Y}=\vec{B} $ where $L\in\mathbb{C}^{n_t\Delta\times n_t\Delta}$, $\Delta=\sum_{j=1}^\alpha N^j$, and $\vec{Y},\vec{B}\in\mathbb{C}^{n_t\Delta}$. A solution to this linear system provides an <u>approximate solution</u> to our original nonlinear ODE. Note that, while the accuracy of the problem improves with increasing $\alpha$, the size of the linear system unfortunately scales exponentially with $\alpha$. This tension means that choosing the appropriate $\alpha$ is critical.</p>
 <p>So, what is this matrix $L$ and how does it relate to eq. \eqref{eqn:IVP}? Let&rsquo;s pick it apart piece by piece to see. By definition
-$$L = \begin{pmatrix}
+$$L = \begin{pmatrix} \tag{2} \label{eqn:L}
 I  &amp; 0 &amp; \dots &amp; 0 \\
 -I &amp; I-\Delta t A &amp; \dots &amp; 0 \\
 \vdots &amp; \ddots &amp; \ddots &amp; \vdots \\
@@ -393,16 +455,24 @@ I  &amp; 0 &amp; \dots &amp; 0 \\
 $$
 where each block in $L$ evolves the system forward by $\Delta t$ with $n_t$ total blocks. To continue to pick $L$ apart, we break open the $A$ matrices defined by
 $$
-\begin{equation} \tag{2} \label{eqn:A}
+\begin{equation} \tag{3} \label{eqn:A}
 A = \begin{pmatrix}
 A_1^1 &amp; A_2^1 &amp; 0 &amp; &hellip; &amp; 0 \\
 0 &amp; A_2^2 &amp; A_3^2 &amp; &hellip;  &amp; 0 \\
-\vdots &amp; \dots &amp; \ddots &amp; \ddots &amp; A_\alpha^{\alpha-1} \\
-0 &amp; 0 &amp; \dots &amp; 0 &amp; A_\alpha^\alpha
+\vdots &amp; \dots &amp; \ddots &amp; \ddots &amp; \ddots \\
+0 &amp; \dots &amp; \dots &amp; A_{\alpha-1}^{\alpha-1} &amp; A_\alpha^{\alpha-1} \\
+0 &amp; \dots &amp; \dots &amp; 0 &amp; A_\alpha^\alpha
 \end{pmatrix}
 \end{equation}
 $$
-where we can see that the size of $A$ depends upon the truncation order $\alpha$. By inspection of $A$, we identify two types of block matrices: $A_j^j$ and $A_{j+1}^j$. Informally, you can think of the $A_j^j$ and $A_{j+1}^j$ blocks as implementing the dynamics contained in the $F_1$ and $F_2$ matrices respectively. The example below should help you get a better feeling for the structure of this kind of matrix.</p>
+where we can see that the size of $A$ depends upon the truncation order $\alpha$. By inspection of $A$, we identify two types of block matrices: $A_j^j$ and $A_{j+1}^j$ defined by
+$$
+\begin{equation}
+A_j^j = \sum_{l=0}^{j-1} I_{n_x}^{\otimes l} \otimes F_1 \otimes I_{n_x}^{\otimes j-l-1}, \quad
+A_{j+1}^j = \sum_{l=0}^{j-1} I_{n_x}^{\otimes l} \otimes F_2 \otimes I_{n_x}^{\otimes j-l-1} .
+\end{equation}
+$$
+You can think of the $A_j^j$ and $A_{j+1}^j$ blocks as implementing the dynamics contained in the $F_1$ and $F_2$ matrices respectively. The example below should help you get a better feeling for the structure of this kind of matrix.</p>
 <div style="border-radius: 10px; background: beige; padding: 10px; color: black">
 	<h4 style="margin:0.3em 0"><u>Example 1</u></h4> 
 	Consider the 1D spatially discretized Burgers' equation
@@ -411,30 +481,30 @@ where we can see that the size of $A$ depends upon the truncation order $\alpha$
 	\end{equation} $$
 	where $u_j(t)=(u_1(t),\dots,u_{n_x}(t))^T$, $\nu$ is the diffusion coefficient, and $\Delta x$ is the grid spacing. This can be rewriten into the form of eq. \eqref{eqn:IVP} where the $F_1$ and $F_2$ terms are shown in the underbraces. 
 	<br><br>
-	Let's consider the example where $n_x=4 \text{ and}\ \alpha=4$. The $A$ matrix defined from eq. \eqref{eqn:A} takes the form in the figure below.
+	Let's consider the example where $n_x=4$ and $\alpha=2$. The $A$ matrix defined from eq. \eqref{eqn:A} takes the form in the figure below.
 	<p class="aligncenter">
-		<img src="Carleman_Matrix_A.png" alt="Matrix_A" /></p>
+		<img src="Matrix_A.png" alt="Matrix_A" /></p>
 	<style>
 	.aligncenter {
 		text-align: center;
 	}
 	</style>
-	The $A_j^j$ terms in this example are $A_1^1$, $A_2^2$, $A_3^3$ and $A_4^4$, which are all square, sparse, highly structured matrices making data loading relatively straightforward. On the other hand, the $A_{j+1}^j$ terms are $A_2^1$, $A_3^2$, and $A_4^3$ which are are non-square, sparse, <em>somewhat</em> structured matrices making them much more difficult for data loading.
+	The $A_j^j$ terms in this example are $A_1^1$ and $A_2^2$, which are square, sparse, highly structured matrices making data loading relatively straightforward. The only $A_{j+1}^j$ term in this example is $A_2^1$ which is a non-square, sparse, structured matrix making it much more difficult for data loading.
 	<br><br>
-	Now let's see how these matrices fit into the $L$ matrix when $n_t=3$.
+	Now let's see how these matrices fit into the $L$ matrix from eq. \eqref{eqn:L} when $n_t=4$.
 	<p class="aligncenter">
-		<img src="Matrix_L.png" alt="Matrix_A" /></p>
+		<img src="Matrix_L.png" alt="Matrix_L" /></p>
 	<style>
 	.aligncenter {
 		text-align: center;
 	}
 	</style>
-	This is the full structure for the $L$ matrix where each block represents a time step and you can clearly see the repeating $A$ matrix structure along the main diagonal.
+	This is the full structure for the $L$ matrix where each block represents a time step (hence 4 blocks) and you can clearly see the repeating $A$ matrix structure along the main diagonal.
 </div>
-<p>So, now that we have gained some intuition about the structure of $L$, how would you go about decomposing it into a linear combination of unitaries with, importantly, only a <em>small</em> number of terms?</p>
+<p>So, now that we have gained some intuition about the structure of $L$, how would you go about decomposing it into a linear combination of unitaries with, importantly, a number of terms ($N_s$) that is polylog?</p>
 <p>One of the challenges in doing this is that even though we know that $L$ is composed of these $A$ blocks, the differing sizes of the $A_j^j$ and $A_{j+1}^j$ terms makes it difficult to separate them out. But what if each $A_j^j$ and $A_{j+1}^j$ were the same size? Then, it becomes much easier to pick $A$, and thereby $L$, apart. This is exactly what I introduce in the next section.</p>
 <h3 id="carleman-embedding">Carleman Embedding</h3>
-<p>To circumvent the issue of each of the $A_j^j$ and $A_{j+1}^j$ blocks being differently sized, we&rsquo;ll use zero-padding to force them all to be equal defined by
+<p>To circumvent the issue of each of the $A_j^j$ and $A_{j+1}^j$ blocks being differently sized, we&rsquo;ll use zero-padding to force their sizes to be equal. Define
 $$
 \begin{equation}
 A_j^{(e),j} = \begin{pmatrix} A_j^j &amp; 0 \\ 0 &amp; 0 \end{pmatrix},
@@ -444,60 +514,71 @@ A_{j+1}^{(e),j} = \begin{pmatrix} A_{j+1}^j &amp; 0 \\ 0 &amp; 0 \end{pmatrix},
 $$
 where the superscript $(e)$ stands for &ldquo;embed&rdquo; and the $0$ blocks are appropriately sized. Whereas $A_j^j$ and $A_{j+1}^j$ are sized $N^j \times N^j$ and $N^j \times N^{j+1}$ respectively, their embedded analogs $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ are sized $N^\alpha \times N^\alpha$ for all $j$. We then use these blocks to form a matrix analogous to \eqref{eqn:A} given by
 $$
-\begin{equation} \tag{2} \label{eqn:Ae}
+\begin{equation} \tag{4} \label{eqn:Ae}
 A^{(e)} = \begin{pmatrix}
 A_1^{(e),1} &amp; A_2^{(e),1} &amp; 0 &amp; &hellip; &amp; 0 \\
 0 &amp; A_2^{(e),2} &amp; A_3^{(e),2} &amp; &hellip;  &amp; 0 \\
-\vdots &amp; \dots &amp; \ddots &amp; \ddots &amp; A_\alpha^{(e),\alpha-1} \\
-0 &amp; 0 &amp; \dots &amp; 0 &amp; A_\alpha^{(e),\alpha}
+\vdots &amp; \dots &amp; \ddots &amp; \ddots &amp; \ddots \\
+0 &amp; \dots &amp; \dots &amp; A_{\alpha-1}^{(e),\alpha-1} &amp; A_\alpha^{(e),\alpha-1} \\
+0 &amp; \dots &amp; \dots &amp; 0 &amp; A_\alpha^{(e),\alpha}
 \end{pmatrix} .
 \end{equation}
 $$</p>
 <p>Given this new definition of $A^{(e)}$, we can then define an analogous linear system of equations of the form $L^{(e)} \vec{Y}^{(e)} = \vec{B}^{(e)}$ where
 $$
-L^{(e)} = \begin{pmatrix}
+L^{(e)} = \begin{pmatrix} \tag{5} \label{eqn:Le}
 I  &amp; 0 &amp; \dots &amp; 0 \\
 -I &amp; I-\Delta t A^{(e)} &amp; \dots &amp; 0 \\
 \vdots &amp; \ddots &amp; \ddots &amp; \vdots \\
 0  &amp; \dots &amp; -I &amp; I-\Delta t A^{(e)}
 \end{pmatrix} .
 $$
-Even though this linear system is substantially larger than the previous version, we are using size as a resource because it will actually only require a few qubits more to encode. The advantage is that it enables us to easily &ldquo;pick&rdquo; out each of the $A_j^j$ and $A_{j+1}^j$ blocks as demonstrated in the following example.</p>
+Even though this linear system is substantially larger than the previous version, we are using size as a resource enabling us to easily &ldquo;pick&rdquo; out each of the $A_j^j$ and $A_{j+1}^j$ blocks with limited overhead. This is demonstrated in the following example.</p>
 <div style="border-radius: 10px; background: beige; padding: 10px; color: black">
 	<h4 style="margin:0.3em 0"><u>Example 2</u></h4> 
-	Consider again the setup from Example 1. Then the structure of the $A^{(e)}$ matrix looks a lot like the $A$ matrix, but with judicious zero-padding. 
-	<br><br>
+	Consider again the setup from Example 1 with $n_x=4$, $n_t=4$, and $\alpha=2$. Then the structure of the $A^{(e)}$ matrix from eq. \eqref{eqn:Ae} looks a lot like the $A$ matrix, but with judicious zero-padding. 
 	<p class="aligncenter">
-		<img src="Carleman_Embedding_Ae.png" alt="Matrix_A" /></p>
+		<img src="Matrix_Ae.png" alt="Matrix_Ae" /></p>
 	<style>
 	.aligncenter {
 		text-align: center;
 	}
 	</style>
-	<br>	
-	Since each block is the same size, we can actually pick them apart using the $\rho_j$ matrices defined in <a href="http://localhost:1313/website/data_loading_part1/">Part 1</a>. That is we have
+	Since each block is the same size, we can actually pick $A^{(e)}$ apart using the $\rho_j$ matrices defined in <a href="http://localhost:1313/website/data_loading_part1/">Part 1</a>. That is we have
 	$$
 	\begin{equation}
-		A^{(e)} = \rho_0\otimes\rho_0 \otimes A_1^{(e),1}
-		  + \rho_0\otimes\rho_3 \otimes A_2^{(e),2}
-		  + \rho_3\otimes\rho_0 \otimes A_3^{(e),3}
-		  + \rho_3\otimes\rho_3 \otimes A_4^{(e),4} \\
-		  + \rho_0\otimes\rho_1 \otimes A_2^{(e),1}
-		  + \rho_1\otimes\rho_2 \otimes A_3^{(e),2}
-		  + \rho_3\otimes\rho_1 \otimes A_4^{(e),3}
+		A^{(e)} = \rho_0 \otimes A_1^{(e),1}
+		  + \rho_1 \otimes A_2^{(e),1}
+		  + \rho_3 \otimes A_2^{(e),2} .
 	\end{equation}
 	$$
 	This simple decomposition is only possible because each of the $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ blocks are the same size. 
+	<br><br>
+	The decomposition of $L^{(e)}$ from eq. \eqref{eqn:Le} is also made easier since it is given by 
+	$$
+	\begin{equation}
+		L^{(e)}
+		=
+		(\rho_4^{\otimes 2} - \rho_0\otimes\rho_0) \otimes A^{(e)}
+		+ 
+		(\rho_4^{\otimes 2} - \rho_4\otimes\rho_2 - \rho_2\otimes\rho_1)
+		\otimes\rho_4^{\otimes 5}.
+	\end{equation}
+	$$
+	<br>
+	So, by inserting $A^{(e)}$ into $L^{(e)}$ we simply need to find decompositions for $A_1^{(e),1}$, $A_2^{(e),1}$, and $A_2^{(e),2}$, which is a  much easier problem than the original one of needing to find a decomposition for $L$ from eq. \eqref{eqn:L}. 
 </div> 
-<p>This demonstrates the key advantage of using this Carleman embedding (zero-padding) method. That is, we transformed the problem from the matrix $A$ in Example 1 with no obvious decomposition, to the matrix $A^{(e)}$ which is decomposed easily into $2\alpha-1$ number of terms.</p>
-<p>That being said, our job is not over since we must now decompose each of the $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ terms. But, importantly, we have reduced the problem from a daunting one to one that is more manageable as I will show in the next section.</p>
-<h3 id="section-3-new-post-decomposition-of-le">Section 3: New post? Decomposition of L^e</h3>
-<h3 id="section-4-circuits">Section 4: Circuits</h3>
+<p>This demonstrates the key advantage of using this Carleman embedding (zero-padding) method. That being said, our job is not over since we must now decompose each of the $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ terms. But, importantly, we have reduced the problem from a daunting one to one that is more manageable. In Part 3 of this series, I will show how to fully decompose the matrix $L^{(e)}$ introduced here into explicit circuits to be run with the VQLS method.</p>
+<p><strong>Questions or comments?</strong> ReubenDemi [at] gmail [dot] com</p>
 <h2 id="references">References</h2>
 <p><a id="1">[1]</a>
 A. Gnanasekaran and A. Surana, &ldquo;Efficient Variational Quantum Linear Solver for Structured Sparse Matrices,&rdquo; 2024 IEEE International Conference on Quantum Computing and Engineering (QCE), Montreal, QC, Canada, 2024, pp. 199-210, <a href="https://arxiv.org/abs/2404.16991">doi: 10.1109/QCE60285.2024.00033</a></p>
 <p><a id="2">[2]</a>
 Demirdjian, Reuben, Thomas Hogancamp, and Daniel Gunlycke. &ldquo;An Efficient Decomposition of the Carleman Linearized Burgers&rsquo; Equation.&rdquo; arXiv preprint <a href="https://arxiv.org/abs/2505.00285">arXiv:2505.00285</a> (2025).</p>
+<p><a id="3">[3]</a>
+Bravo-Prieto, Carlos, et al. &ldquo;Variational quantum linear solver.&rdquo; Quantum 7 (2023): 1188.</p>
+<p><a id="4">[4]</a>
+Liu, Jin-Peng, et al. &ldquo;Efficient quantum algorithm for dissipative nonlinear differential equations.&rdquo; Proceedings of the National Academy of Sciences 118.35 (2021): e2026805118.</p>
 ]]></content:encoded>
     </item>
     <item>
@@ -639,6 +720,7 @@ $$A = \sum_{l=1}^{n_l}\alpha_l A_l, \quad A_l = \bigotimes_k\rho_{r_k}$$
 where $\alpha_l$ is a coefficient, and $r_k\in\{0,1,2,3,4\}$ is a set that generalizes the indices.</p>
 <p>This is useful because now each $A_l$ can be block encoded &ndash; following the methods outlined above &ndash; and implemented into the VQLS routine to find a solution!</p>
 <p>While this is a powerful tool for those very specific kinds of matrices, what if our matrix $A$ takes a similar but different form? Can we adapt this technique to once again create efficient circuits? The answer is yes! And that is the subject of the next blog post.</p>
+<p><strong>Questions or comments?</strong> ReubenDemi [at] gmail [dot] com</p>
 <hr>
 <h3 id="references">References</h3>
 <p><a id="1">[1]</a>

@@ -186,17 +186,10 @@ Even though this linear system is substantially larger than the previous version
 	\begin{equation}
 		L^{(e)}
 		=
-		(I_4 - \rho_0\otimes\rho_0) \otimes A^{(e)}
+		(\rho_4^{\otimes 2} - \rho_0\otimes\rho_0) \otimes A^{(e)}
 		+ 
-		(
-		I_4
-		-
-		\rho_0\otimes\rho_2
-		-
-		\rho_2\otimes\rho_1
-		-
-		\rho_3\otimes\rho_2
-		) \otimes I_{\alpha N^\alpha} .
+		(\rho_4^{\otimes 2} - \rho_4\otimes\rho_2 - \rho_2\otimes\rho_1)
+		\otimes\rho_4^{\otimes 5}.
 	\end{equation}
 	$$
 	<br>
@@ -205,6 +198,7 @@ Even though this linear system is substantially larger than the previous version
 
 This demonstrates the key advantage of using this Carleman embedding (zero-padding) method. That being said, our job is not over since we must now decompose each of the $A_j^{(e),j}$ and $A_{j+1}^{(e),j}$ terms. But, importantly, we have reduced the problem from a daunting one to one that is more manageable. In Part 3 of this series, I will show how to fully decompose the matrix $L^{(e)}$ introduced here into explicit circuits to be run with the VQLS method. 
 
+__Questions or comments?__ ReubenDemi [at] gmail [dot] com
 
 ## References
 <a id="1">[1]</a>

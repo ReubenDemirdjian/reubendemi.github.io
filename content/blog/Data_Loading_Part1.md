@@ -143,6 +143,8 @@ This is useful because now each $A_l$ can be block encoded -- following the meth
 
 While this is a powerful tool for those very specific kinds of matrices, what if our matrix $A$ takes a similar but different form? Can we adapt this technique to once again create efficient circuits? The answer is yes! And that is the subject of the next blog post.
 
+__Questions or comments?__ ReubenDemi [at] gmail [dot] com
+
 ---
 
 
