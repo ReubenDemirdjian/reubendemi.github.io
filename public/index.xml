@@ -73,6 +73,213 @@ MathJax.Hub.Config({
 ]]></content:encoded>
     </item>
     <item>
+      <title>Data Loading on a Quantum Computer: Part 3</title>
+      <link>http://localhost:1313/website/data_loading_part3/</link>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 +0000</pubDate><author>ReubenDemi@gmail.com (Reuben Demirdjian)</author>
+      <guid>http://localhost:1313/website/data_loading_part3/</guid>
+      <description>&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [[&#39;$&#39;,&#39;$&#39;]],
+    displayMath: [[&#39;$$&#39;,&#39;$$&#39;]],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;],
+    TeX: { equationNumbers: { autoNumber: &#34;AMS&#34; },
+         extensions: [&#34;AMSmath.js&#34;, &#34;AMSsymbols.js&#34;] }
+  }
+});
+&lt;/script&gt;
+&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
+  MathJax.Hub.Queue(function() {
+    // Fix &lt;code&gt; tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += &#39; has-jax&#39;;
+    }
+});
+&lt;/script&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;This post is part 3 of a series where I discuss data loading for solving linear systems of equations. I highly recommend that you first read &lt;a href=&#34;https://reubendemirdjian.github.io/data_loading_part1/&#34;&gt;Part 1&lt;/a&gt; and &lt;a href=&#34;https://reubendemirdjian.github.io/data_loading_part2/&#34;&gt;Part 2&lt;/a&gt;, otherwise this post may not make much sense.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<h3 id="introduction">Introduction</h3>
+<p>This post is part 3 of a series where I discuss data loading for solving linear systems of equations. I highly recommend that you first read <a href="https://reubendemirdjian.github.io/data_loading_part1/">Part 1</a> and <a href="https://reubendemirdjian.github.io/data_loading_part2/">Part 2</a>, otherwise this post may not make much sense.</p>
+<p>In this post, I will combine the concepts introduced in parts 1 and 2 to create explicit circuits that encode the matrix from the Carleman linearized and Burgers&rsquo; equation, see my <a href="#2">recent article</a> for full details. The end result is a linear combination of unitaries with not only a polylogarithmic number of terms, but each term may be encoded with polylogarithmic circuit depths. In plain language, this means that we can encode our exponentially sized matrix onto a quantum computer using only a polynomial number of classical resources.</p>
+<h3 id="decomposition-of-le">Decomposition of $L^{(e)}$</h3>
+<p>In words, the $L^{(e)}$ matrix is the zero-padded Carleman linearized Burgers&rsquo; equation and is defined in <a href="https://reubendemirdjian.github.io/data_loading_part2/#mjx-eqn-eqnLe">eq. (5) of Part 2</a>. As we saw in Example 2 of Part 2, this matrix can be split into two types of terms given by</p>
+<p>$$
+L^{(e)} :=
+\begin{pmatrix}
+I  &amp; 0 &amp; \dots &amp; 0 \\
+-I &amp; I-\Delta t A^{(e)} &amp; \dots &amp; 0 \\
+\vdots &amp; \ddots &amp; \ddots &amp; \vdots \\
+0  &amp; \dots &amp; -I &amp; I-\Delta t A^{(e)}
+\end{pmatrix}
+= L_1^{(e)} - \Delta t L_2^{(e)}
+$$
+where
+$$ \tag{1} \label{eqn:L1eL2e}
+L_1^{(e)} =
+\begin{pmatrix}
+I  &amp; 0 &amp; \dots &amp; 0 \\
+-I &amp; I &amp; \dots &amp; 0 \\
+\vdots &amp; \ddots &amp; \ddots &amp; \vdots \\
+0  &amp; \dots &amp; -I &amp; I
+\end{pmatrix}
+,\quad
+L_2^{(e)} =
+\begin{pmatrix}
+0  &amp; 0 &amp; \dots &amp; 0 \\
+0 &amp; A^{(e)} &amp; \dots &amp; 0 \\
+\vdots &amp; \ddots &amp; \ddots &amp; \vdots \\
+0  &amp; \dots &amp; 0 &amp; A^{(e)}
+\end{pmatrix} .
+$$
+We will find the explicit circuits for $L_1^{(e)}$ and $L_2^{(e)}$ in the following subsections.</p>
+<h4 id="decomposition-of-l_1e">Decomposition of $L_1^{(e)}$</h4>
+<p>The $L_1^{(e)}$ matrix is simple and may be decomposed exactly as
+$$
+L_1^{(e)} = \bigg(\rho_4^{\otimes \log n_t} - \rho_4^{\otimes (\log(n_t)-1)}\otimes \rho_2
+-\sum_{j=2}^{\log n_t} \rho_4^{\otimes (j-2)} \otimes \rho_2 \otimes \rho_1^{\otimes (\log(n_t)-j+1)}\bigg)
+\otimes \rho_4^{\otimes\log(\alpha n_x^\alpha)} ,
+$$
+for truncation order $\alpha$, number of time steps $n_t$, and $\rho_j$ for $j\in\{0,\dots,4\}$ defined in <a href="https://reubendemirdjian.github.io/data_loading_part1/">Part 1</a>. This linear combination has exactly $\log n_t +1$ terms. Since these terms are composed purely of $\rho_j$ components, we can use the methods introduced in Part 1 to generate their circuits as we see in the following example.</p>
+<div style="border-radius: 10px; background: beige; padding: 10px; color: black">
+	<h4 style="margin:0.3em 0"><u>Example 1</u></h4> 
+	Let $\alpha=2$, $n_t=4$, and $n_x=4$, then 
+  $$ \tag{2}\label{eqn:L1}
+  L_1^{(e)} = 
+  (\rho_4^{\otimes 2} - \rho_4\otimes\rho_2 - \rho_2\otimes\rho_1)\otimes\rho_4^{\otimes 5} .
+  $$
+  Following the strategy introduced in Part 1, we will block encode each of the 3 terms into a unitary matrix of the form 
+  $$
+  U := \begin{pmatrix} A^c & A \\\ A & A^c \end{pmatrix} = U_1 U_2
+  $$
+  where $A$ would be one of the 3 terms in the decomposition above. 
+  <br><br>
+	As in Part 1, I will use the <a href="https://github.com/Strilanc/Quirk/wiki/How-to-use-Quirk#view-the-unitary-matrix-of-a-circuit-via-the-state-channel-duality">EPR pairs</a> trick so that the state display shows the corresponding matrix for each circuit. Note that the parts of the circuits below labelled "EPR Pairs" exist simply to implement the EPR pairs trick and are not part of our block encodings.
+  <br><br>
+  The first term in eq. \eqref{eqn:L1} is $\rho_4^{\otimes 7}$, which has a trivial block encoding. The full circuit is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
+	<p class="aligncenter">
+		<img src="Le1_1.png" alt="centered image" /></p>
+	<style>
+	.aligncenter {
+		text-align: center;
+	}
+ 	</style>	 
+  This component is clearly just the main diagonal from the $L_1^{(e)}$ matrix in eq. \eqref{eqn:L1eL2e}.
+  <br><br>
+  The second circuit is $\rho_2\otimes\rho_1\otimes\rho_4^{\otimes 5}$ and its circuit is given
+  <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
+	<p class="aligncenter">
+		<img src="Le1_2.png" alt="centered image" /></p>
+	<style>
+	.aligncenter {
+		text-align: center;
+	}
+ 	</style>	 
+  This circuit fills in part of the subdiagonal $-I$ block from eq. \eqref{eqn:L1eL2e}, but not all of it. To complete this subdiagonal block we need one more term given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,1,1,1,%22X%22,%22X%22],[1,1,1,1,1,1,1,1,1,1,1,1,1,%22%E2%97%A6%22,%22%E2%80%A2%22,%22X%22]]}">here in Quirk</a> and reproduced below. 
+	<p class="aligncenter">
+		<img src="Le1_3.png" alt="centered image" /></p>
+	<style>
+	.aligncenter {
+		text-align: center;
+	}
+ 	</style>
+  And that's it! Verification is straightforward. Simply add each of them together and compare the resulting matrix's upper right block with $L_1^{(e)}$ from eq. \eqref{eqn:L1eL2e}. Note that this is a qualitative verification since we are only looking at the matrix structure, and not its values. However, the proper values are simply obtained by multiplying by the correct coefficients, which is easy to do.
+</div>
+<br>
+The principles from Example 1 can be used to very easily encode the $L_1^{(e)}$ matrix of arbitrary size. In fact, we can encode exponentially sized $L_1^{(e)}$ matrices with only polynomially many classical resources!
+<h4 id="decomposition-of-l_2e">Decomposition of $L_2^{(e)}$</h4>
+<p>The Decomposition of $L_2^{(e)}$ is trickier, but I will break this term apart piece by piece. Observe that
+$$ \tag{3} \label{eqn:L2e}
+L_2^{(e)} = (\rho_4^{\otimes \log n_t} - \rho_0^{\otimes \log n_t}) \otimes A^{(e)} .
+$$
+While we do have a general decomposition for $A^{(e)}$, see <a href="#2">Section 4 of my paper</a>, we will consider a specific example for simplicity.</p>
+<div style="border-radius: 10px; background: beige; padding: 10px; color: black">
+	<h4 style="margin:0.3em 0"><u>Example 2</u></h4> 
+  As in Example 1, let $\alpha=2$, $n_t=4$, and $n_x=4$, then
+  $$ \tag{4} \label{eqn:Ae}
+  A^{(e)} = \rho_0 \otimes A^{(e),1}_1 + \rho_3 \otimes A^{(e),2}_2 + \rho_1 \otimes A^{(e),1}_2 .
+  $$
+  Clearly, there are two types of terms here, the $A^{(e),j}_j$ and the $A^{(e),j}_j+1$ terms and we'll handle them separately. The two $A^{(e),j}_j$ terms from \eqref{eqn:Ae} are 
+  $$ \tag{5} \label{eqn:Aejj}
+  A^{(e),1}_1 = \rho_0^{\otimes 2} \otimes F_1 , \\
+  A^{(e),2}_2 = \rho_4^{\otimes 2} \otimes F_1 + F_1 \otimes \rho_4^{\otimes 2} .
+  $$
+  Next, we decompose the $F_1$ term, which, if you recall from <a href="https://reubendemirdjian.github.io/data_loading_part2/">Part 2</a>, is simply the Laplacian times a coefficient. I'd like to emphasize that there are many ways to do this and the decomposition I have chosen may not be optimal. While it may not be the best, this method still results in a polylog number of terms. We have
+  $$ \tag{6} \label{eqn:F1}
+  F_1 = -2\rho_4^{\otimes 2} + \rho_4\otimes(\rho_1+\rho_2) + \rho_1^{\otimes 2} + \rho_2^{\otimes 2} + \rho_2\otimes\rho_1 + \rho_1\otimes\rho_2 .
+  $$
+  Therefore, combining \eqref{eqn:L2e}, \eqref{eqn:Ae}, \eqref{eqn:Aejj}, and \eqref{eqn:F1} we find that there are a total of 42 $A^{(e),j}_j$ terms in $L_2^{(e)}$. Since each of these terms are composed purely of $\rho_j$ terms, each circuit can be constructed exactly following the methods discussed in <a href="https://reubendemirdjian.github.io/data_loading_part1/">Part 1</a> and so I will not show them here.
+  <br><br>
+  Next, we look at the $A^{(e),j}_{j+1}$ terms. In this example, there is just one and it is given by
+  $$ \tag{7} \label{eqn:Aejp1j}
+  A^{(e),1}_2 = \begin{pmatrix} F_2 \\\ 0_{12\times 16} \end{pmatrix},
+  $$
+  Note that for $j>1$ there is a more complex form, so if you are curious then have a look at [Section 4 of my paper](#2). The final piece is to find a circuit for the zero padded $F_2$ term, which, if you recall from <a href="https://reubendemirdjian.github.io/data_loading_part2/">Part 2</a>, is the nonlinear term. Here we have,
+  $$ \tag{8} \label{eqn:F2}
+  \begin{pmatrix} F_2 \\\ 0_{12\times 16} \end{pmatrix} = \frac{-1}{2\Delta x} (\rho_0^{\otimes 2} \otimes \rho_4^{\otimes 2}) \cdot (P_2^+P_1 - P_2^-P_1)
+  $$
+  where
+  $$
+  P_1 = CX(1,3) \cdot CX(0,2) , \\
+  P_2^+ = X_0 \cdot CX(0,1) , \\
+  P_2^- = CX(0,1) \cdot X_0 ,
+  $$
+  where $X_0$ is the Pauli-X gate applied to the $0^\text{th}$ qubit. By combining \eqref{eqn:L2e}, \eqref{eqn:Ae}, \eqref{eqn:Aejp1j}, and \eqref{eqn:F2}, we find that there are a total of 4 $A^{(e),j}_{j+1}$ terms in $L_2^{(e)}$. One of the four circuits is given <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,%22X%22,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22],[1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,%22%E2%97%A6%22,%22%E2%97%A6%22,%22%E2%97%A6%22,1,1,%22X%22]]}">here in Quirk</a> and reproduced below.  
+	<p class="aligncenter">
+		<img src="Lejp1j_term1.png" alt="centered image" /></p>
+	<style>
+	.aligncenter {
+		text-align: center;
+	}
+ 	</style>
+  While the stucutre of this matrix is more complicated than those in Example 1, one way to visually "verify" this circuit is by noting that the block encoded structure repeats 4 times, once for each time step. The circuits for the other three terms are given here in Quirk:
+  <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,%22X%22,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22],[1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,%22%E2%97%A6%22,%22%E2%97%A6%22,%22%E2%97%A6%22,%22%E2%97%A6%22,%22%E2%97%A6%22,%22X%22]]}">$\rho_0^{\otimes 2} \otimes \rho_1 \otimes \Big((\rho_0^{\otimes 2} \otimes \rho_4^{\otimes 2})\cdot P_2^+ P_1) \Big)$</a>, 
+  <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22],[1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,%22%E2%97%A6%22,%22%E2%97%A6%22,%22%E2%97%A6%22,1,1,%22X%22]]}">$\rho_4^{\otimes 2} \otimes \rho_1 \otimes \Big((\rho_0^{\otimes 2} \otimes \rho_4^{\otimes 2})\cdot P_2^- P_1) \Big)$</a>
+  and
+  <a href="https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22,%22H%22],[%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,%22%E2%80%A2%22,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,%22%E2%80%A2%22,%22X%22],[1,1,1,1,1,1,1,1,%22X%22],[1,1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22],[1,1,1,1,1,1,1,1,%22%E2%80%A2%22,1,%22X%22],[1,1,1,1,1,1,1,1,1,1,%22%E2%97%A6%22,%22%E2%97%A6%22,%22%E2%97%A6%22,%22%E2%97%A6%22,%22%E2%97%A6%22,%22X%22]]}">$\rho_0^{\otimes 2} \otimes \rho_1 \otimes \Big((\rho_0^{\otimes 2} \otimes \rho_4^{\otimes 2})\cdot P_2^- P_1) \Big)$</a>.
+</div>
+<p>In Examples 1 and 2, we found the exact circuits necessary to block encode the Carleman linearized 1D Burgers equation for the case where $\alpha=2$, $n_x=4$ and $n_t=4$. The full details of the general case can be found in <a href="#2">my paper</a>, but here I wanted to provide some intuition about how this method works.</p>
+<p><strong>Questions or comments?</strong> ReubenDemi [at] gmail [dot] com</p>
+<h2 id="references">References</h2>
+<p><a id="1">[1]</a>
+A. Gnanasekaran and A. Surana, &ldquo;Efficient Variational Quantum Linear Solver for Structured Sparse Matrices,&rdquo; 2024 IEEE International Conference on Quantum Computing and Engineering (QCE), Montreal, QC, Canada, 2024, pp. 199-210, <a href="https://arxiv.org/abs/2404.16991">doi: 10.1109/QCE60285.2024.00033</a></p>
+<p><a id="2">[2]</a>
+Demirdjian, Reuben, Thomas Hogancamp, and Daniel Gunlycke. &ldquo;An Efficient Decomposition of the Carleman Linearized Burgers&rsquo; Equation.&rdquo; arXiv preprint <a href="https://arxiv.org/abs/2505.00285">arXiv:2505.00285</a> (2025).</p>
+<p><a id="3">[3]</a>
+Bravo-Prieto, Carlos, et al. &ldquo;Variational quantum linear solver.&rdquo; Quantum 7 (2023): 1188.</p>
+<p><a id="4">[4]</a>
+Liu, Jin-Peng, et al. &ldquo;Efficient quantum algorithm for dissipative nonlinear differential equations.&rdquo; Proceedings of the National Academy of Sciences 118.35 (2021): e2026805118.</p>
+]]></content:encoded>
+    </item>
+    <item>
       <title>CV</title>
       <link>http://localhost:1313/website/cv/</link>
       <pubDate>Mon, 26 May 2025 13:36:46 -0700</pubDate><author>ReubenDemi@gmail.com (Reuben Demirdjian)</author>
