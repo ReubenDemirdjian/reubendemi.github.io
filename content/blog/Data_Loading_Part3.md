@@ -2,8 +2,7 @@
 author = "Reuben Demirdjian"
 title = "Data Loading on a Quantum Computer: Part 3"
 date = "2025-06-25"
-description = "An continuation of an overview of a recent journal article of mine"
-draft = false 
+description = "A continuation of an overview of a recent journal article of mine"
 +++
 
 <script type="text/x-mathjax-config">
